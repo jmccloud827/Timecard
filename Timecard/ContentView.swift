@@ -45,7 +45,9 @@ struct ContentView: View {
                         SheetView(viewModel: viewModel)
                     }
                 }
-                BannerView()
+                if !viewModel.disableAds {
+                    BannerView()
+                }
             }
             .tabItem { Label("Timecard", systemImage: "list.bullet.rectangle.portrait") }
             .tag(1)
@@ -75,7 +77,9 @@ struct ContentView: View {
                         SheetView(viewModel: viewModel)
                     }
                 }
-                BannerView()
+                if !viewModel.disableAds {
+                    BannerView()
+                }
             }
             .tabItem { Label("Calculator", systemImage: "minus.slash.plus") }
             .tag(2)

@@ -11,6 +11,7 @@ class ViewModel: ObservableObject, Codable {
     @Published var defaultTimeIn = getDefaultDate(isIn: true)
     @Published var defaultTimeOut = getDefaultDate(isIn: false)
     @Published var defaultBreak = 0
+    @Published var disableAds = false
     @Published var workDays: [Day] = [
         .init(name: "Monday", index: 1),
         .init(name: "Tuesday", index: 2),
@@ -30,7 +31,8 @@ class ViewModel: ObservableObject, Codable {
              totalHours,
              defaultTimeIn,
              defaultTimeOut,
-             defaultBreak
+             defaultBreak,
+             disableAds
     }
     
     init() {}
@@ -44,6 +46,7 @@ class ViewModel: ObservableObject, Codable {
         defaultTimeIn = try container.decode(Date.self, forKey: .defaultTimeIn)
         defaultTimeOut = try container.decode(Date.self, forKey: .defaultTimeOut)
         defaultBreak = try container.decode(Int.self, forKey: .defaultBreak)
+        disableAds = try container.decode(Bool.self, forKey: .disableAds)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -55,6 +58,7 @@ class ViewModel: ObservableObject, Codable {
         try container.encode(defaultTimeIn, forKey: .defaultTimeIn)
         try container.encode(defaultTimeOut, forKey: .defaultTimeOut)
         try container.encode(defaultBreak, forKey: .defaultBreak)
+        try container.encode(disableAds, forKey: .disableAds)
     }
     
     class Day: ObservableObject, Codable, Identifiable {

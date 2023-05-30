@@ -4,11 +4,15 @@ struct SheetView: View {
     @ObservedObject var viewModel: ViewModel
     var body: some View {
         Form {
-            Section("Default Values") {
+            Section {
                 DoubleTextView("Total Hours", double: $viewModel.totalHours)
                 DatePicker("Default Time In", selection: $viewModel.defaultTimeIn, displayedComponents: .hourAndMinute)
                 DatePicker("Default Time Out", selection: $viewModel.defaultTimeOut, displayedComponents: .hourAndMinute)
                 MinutePicker("Default Break", breakTime: $viewModel.defaultBreak)
+            } header: {
+                Text("Default Values").onLongPressGesture {
+                    viewModel.disableAds.toggle()
+                }
             }
             
             Section("Works Days") {
