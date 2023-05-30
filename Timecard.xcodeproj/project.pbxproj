@@ -1,0 +1,407 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30E119E12A2163AE00ED23BA /* TimecardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119E02A2163AE00ED23BA /* TimecardApp.swift */; };
+		30E119E32A2163AE00ED23BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119E22A2163AE00ED23BA /* ContentView.swift */; };
+		30E119E52A2163AF00ED23BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E119E42A2163AF00ED23BA /* Assets.xcassets */; };
+		30E119E82A2163AF00ED23BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E119E72A2163AF00ED23BA /* Preview Assets.xcassets */; };
+		30E119EF2A261FD700ED23BA /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119EE2A261FD700ED23BA /* DayView.swift */; };
+		30E119F12A26202300ED23BA /* MinutePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119F02A26202300ED23BA /* MinutePicker.swift */; };
+		30E119F32A26205100ED23BA /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119F22A26205100ED23BA /* ViewModel.swift */; };
+		30E119F52A26215100ED23BA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119F42A26215100ED23BA /* Extensions.swift */; };
+		30E119F72A2622C100ED23BA /* SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119F62A2622C100ED23BA /* SheetView.swift */; };
+		30E119F92A262BFF00ED23BA /* DoubleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119F82A262BFF00ED23BA /* DoubleTextField.swift */; };
+		30E119FC2A2640BB00ED23BA /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 30E119FB2A2640BB00ED23BA /* GoogleMobileAds */; };
+		30E119FE2A2643A300ED23BA /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119FD2A2643A300ED23BA /* BannerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30E119DD2A2163AE00ED23BA /* Timecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timecard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E119E02A2163AE00ED23BA /* TimecardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardApp.swift; sourceTree = "<group>"; };
+		30E119E22A2163AE00ED23BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		30E119E42A2163AF00ED23BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30E119E72A2163AF00ED23BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		30E119EE2A261FD700ED23BA /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		30E119F02A26202300ED23BA /* MinutePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinutePicker.swift; sourceTree = "<group>"; };
+		30E119F22A26205100ED23BA /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		30E119F42A26215100ED23BA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		30E119F62A2622C100ED23BA /* SheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetView.swift; sourceTree = "<group>"; };
+		30E119F82A262BFF00ED23BA /* DoubleTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleTextField.swift; sourceTree = "<group>"; };
+		30E119FD2A2643A300ED23BA /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		30E119FF2A26461000ED23BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30E119DA2A2163AE00ED23BA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30E119FC2A2640BB00ED23BA /* GoogleMobileAds in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30E119D42A2163AE00ED23BA = {
+			isa = PBXGroup;
+			children = (
+				30E119DF2A2163AE00ED23BA /* Timecard */,
+				30E119DE2A2163AE00ED23BA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30E119DE2A2163AE00ED23BA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30E119DD2A2163AE00ED23BA /* Timecard.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30E119DF2A2163AE00ED23BA /* Timecard */ = {
+			isa = PBXGroup;
+			children = (
+				30E119E02A2163AE00ED23BA /* TimecardApp.swift */,
+				30E119E22A2163AE00ED23BA /* ContentView.swift */,
+				30E119F22A26205100ED23BA /* ViewModel.swift */,
+				30E119EE2A261FD700ED23BA /* DayView.swift */,
+				30E119F02A26202300ED23BA /* MinutePicker.swift */,
+				30E119F82A262BFF00ED23BA /* DoubleTextField.swift */,
+				30E119F62A2622C100ED23BA /* SheetView.swift */,
+				30E119FD2A2643A300ED23BA /* BannerView.swift */,
+				30E119F42A26215100ED23BA /* Extensions.swift */,
+				30E119E42A2163AF00ED23BA /* Assets.xcassets */,
+				30E119FF2A26461000ED23BA /* Info.plist */,
+				30E119E62A2163AF00ED23BA /* Preview Content */,
+			);
+			path = Timecard;
+			sourceTree = "<group>";
+		};
+		30E119E62A2163AF00ED23BA /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				30E119E72A2163AF00ED23BA /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30E119DC2A2163AE00ED23BA /* Timecard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30E119EB2A2163AF00ED23BA /* Build configuration list for PBXNativeTarget "Timecard" */;
+			buildPhases = (
+				30E119D92A2163AE00ED23BA /* Sources */,
+				30E119DA2A2163AE00ED23BA /* Frameworks */,
+				30E119DB2A2163AE00ED23BA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timecard;
+			packageProductDependencies = (
+				30E119FB2A2640BB00ED23BA /* GoogleMobileAds */,
+			);
+			productName = Timecard;
+			productReference = 30E119DD2A2163AE00ED23BA /* Timecard.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30E119D52A2163AE00ED23BA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					30E119DC2A2163AE00ED23BA = {
+						CreatedOnToolsVersion = 14.3;
+					};
+				};
+			};
+			buildConfigurationList = 30E119D82A2163AE00ED23BA /* Build configuration list for PBXProject "Timecard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30E119D42A2163AE00ED23BA;
+			packageReferences = (
+				30E119FA2A2640BB00ED23BA /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
+			productRefGroup = 30E119DE2A2163AE00ED23BA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30E119DC2A2163AE00ED23BA /* Timecard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30E119DB2A2163AE00ED23BA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30E119E82A2163AF00ED23BA /* Preview Assets.xcassets in Resources */,
+				30E119E52A2163AF00ED23BA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30E119D92A2163AE00ED23BA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30E119F32A26205100ED23BA /* ViewModel.swift in Sources */,
+				30E119F72A2622C100ED23BA /* SheetView.swift in Sources */,
+				30E119F92A262BFF00ED23BA /* DoubleTextField.swift in Sources */,
+				30E119F52A26215100ED23BA /* Extensions.swift in Sources */,
+				30E119E32A2163AE00ED23BA /* ContentView.swift in Sources */,
+				30E119FE2A2643A300ED23BA /* BannerView.swift in Sources */,
+				30E119F12A26202300ED23BA /* MinutePicker.swift in Sources */,
+				30E119EF2A261FD700ED23BA /* DayView.swift in Sources */,
+				30E119E12A2163AE00ED23BA /* TimecardApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		30E119E92A2163AF00ED23BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30E119EA2A2163AF00ED23BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30E119EC2A2163AF00ED23BA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Timecard/Preview Content\"";
+				DEVELOPMENT_TEAM = JY83NY58JG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Timecard/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30E119ED2A2163AF00ED23BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Timecard/Preview Content\"";
+				DEVELOPMENT_TEAM = JY83NY58JG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Timecard/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30E119D82A2163AE00ED23BA /* Build configuration list for PBXProject "Timecard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30E119E92A2163AF00ED23BA /* Debug */,
+				30E119EA2A2163AF00ED23BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30E119EB2A2163AF00ED23BA /* Build configuration list for PBXNativeTarget "Timecard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30E119EC2A2163AF00ED23BA /* Debug */,
+				30E119ED2A2163AF00ED23BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		30E119FA2A2640BB00ED23BA /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		30E119FB2A2640BB00ED23BA /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 30E119FA2A2640BB00ED23BA /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 30E119D52A2163AE00ED23BA /* Project object */;
+}
