@@ -1,5 +1,12 @@
 import SwiftUI
 
+func print(_ items: Any...) {
+#if DEBUG
+    for item in items { Swift.print(item, separator: "", terminator: "") }
+    Swift.print("")
+#endif
+}
+
 extension View {
     @ViewBuilder func scrollDismissesKeyboard() -> some View {
         if #available(iOS 16.0, *) {
