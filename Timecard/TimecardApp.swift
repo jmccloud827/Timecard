@@ -1,4 +1,3 @@
-import AppTrackingTransparency
 import GoogleMobileAds
 import SwiftUI
 
@@ -18,10 +17,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     var viewModel = ViewModel()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        ATTrackingManager.requestTrackingAuthorization { status in
-            GADMobileAds.sharedInstance().start(completionHandler: nil)
-            GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["e8d4179ecee73c7bf1c687198db4230e"]
-        }
         if let viewModel = try? JSONDecoder().decode(ViewModel.self, from: Data(viewModel.storage.utf8)) {
             self.viewModel = viewModel
         }

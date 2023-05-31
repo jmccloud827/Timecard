@@ -1,3 +1,4 @@
+import AppTrackingTransparency
 import GoogleMobileAds
 import SwiftUI
 
@@ -31,7 +32,14 @@ struct BannerView: View {
 #endif
                 bannerView.rootViewController = self
                 bannerView.delegate = self
-                bannerView.load(GADRequest())
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    ATTrackingManager.requestTrackingAuthorization { status in
+                        if status != .notDetermined && status != .restricted {
+                            GADMobileAds.sharedInstance().start(completionHandler: nil)
+                            self.bannerView.load(GADRequest())
+                        }
+                    }
+                }
             }
             
             func addBannerViewToView(_ bannerView: GADBannerView) {
