@@ -3,12 +3,16 @@ import GoogleMobileAds
 import SwiftUI
 
 struct BannerView: View {
+    @State private var adDidLoad = false
     var size: CGSize {
         return GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(UIScreen.main.bounds.width).size
     }
     
     var body: some View {
-        BannerUiKitView().frame(width: size.width, height: size.height)
+        BannerUiKitView().frame(width: adDidLoad ? size.width : 0, height: adDidLoad ? size.height : 0)
+            .onReceive(Constants.adDidLoad) { value in
+                adDidLoad = value
+            }
     }
     
     struct BannerUiKitView: UIViewControllerRepresentable {
@@ -66,6 +70,7 @@ struct BannerView: View {
             func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
                 print("bannerViewDidReceiveAd")
                 addBannerViewToView(bannerView)
+                Constants.adDidLoad.send(true)
                 bannerView.alpha = 0
                 UIView.animate(withDuration: 1) {
                     bannerView.alpha = 1

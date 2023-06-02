@@ -6,9 +6,9 @@ struct SheetView: View {
         Form {
             Section {
                 DoubleTextView("Total Hours", double: $viewModel.totalHours)
-                DatePicker("Default Time In", selection: $viewModel.defaultTimeIn, displayedComponents: .hourAndMinute)
-                DatePicker("Default Time Out", selection: $viewModel.defaultTimeOut, displayedComponents: .hourAndMinute)
-                MinutePicker("Default Break", breakTime: $viewModel.defaultBreak)
+                DatePicker("Time In", selection: $viewModel.defaultTimeIn, displayedComponents: .hourAndMinute)
+                DatePicker("Time Out", selection: $viewModel.defaultTimeOut, displayedComponents: .hourAndMinute)
+                MinutePicker("Break", breakTime: $viewModel.defaultBreak)
             } header: {
                 Text("Default Values").onLongPressGesture {
                     viewModel.disableAds.toggle()

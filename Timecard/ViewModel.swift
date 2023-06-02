@@ -9,8 +9,49 @@ class ViewModel: ObservableObject, Codable {
     
     @Published var totalHours = 40.0
     @Published var defaultTimeIn = getDefaultDate(isIn: true)
+    {
+        willSet {
+            workDays.forEach { day in
+                if day.timeIn == defaultTimeIn {
+                    day.timeIn = newValue
+                }
+            }
+            daysOff.forEach { day in
+                if day.timeIn == defaultTimeIn {
+                    day.timeIn = newValue
+                }
+            }
+        }
+    }
     @Published var defaultTimeOut = getDefaultDate(isIn: false)
-    @Published var defaultBreak = 0
+    {
+        willSet {
+            workDays.forEach { day in
+                if day.timeOut == defaultTimeOut {
+                    day.timeOut = newValue
+                }
+            }
+            daysOff.forEach { day in
+                if day.timeOut == defaultTimeOut {
+                    day.timeOut = newValue
+                }
+            }
+        }
+    }
+    @Published var defaultBreak = 0 {
+        willSet {
+            workDays.forEach { day in
+                if day.breakTime == defaultBreak {
+                    day.breakTime = newValue
+                }
+            }
+            daysOff.forEach { day in
+                if day.breakTime == defaultBreak {
+                    day.breakTime = newValue
+                }
+            }
+        }
+    }
     @Published var disableAds = false
     @Published var workDays: [Day] = [
         .init(name: "Monday", index: 1),

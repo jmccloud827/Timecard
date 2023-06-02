@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30D98E062A2915FE002A87D6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30D98E052A2915FE002A87D6 /* Constants.swift */; };
 		30E119E12A2163AE00ED23BA /* TimecardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119E02A2163AE00ED23BA /* TimecardApp.swift */; };
 		30E119E32A2163AE00ED23BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E119E22A2163AE00ED23BA /* ContentView.swift */; };
 		30E119E52A2163AF00ED23BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30E119E42A2163AF00ED23BA /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30D98E052A2915FE002A87D6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		30E119DD2A2163AE00ED23BA /* Timecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timecard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30E119E02A2163AE00ED23BA /* TimecardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardApp.swift; sourceTree = "<group>"; };
 		30E119E22A2163AE00ED23BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				30E119F62A2622C100ED23BA /* SheetView.swift */,
 				30E119FD2A2643A300ED23BA /* BannerView.swift */,
 				30E119F42A26215100ED23BA /* Extensions.swift */,
+				30D98E052A2915FE002A87D6 /* Constants.swift */,
 				30E119E42A2163AF00ED23BA /* Assets.xcassets */,
 				30E119FF2A26461000ED23BA /* Info.plist */,
 				30E119E62A2163AF00ED23BA /* Preview Content */,
@@ -173,6 +176,7 @@
 				30E119F92A262BFF00ED23BA /* DoubleTextField.swift in Sources */,
 				30E119F52A26215100ED23BA /* Extensions.swift in Sources */,
 				30E119E32A2163AE00ED23BA /* ContentView.swift in Sources */,
+				30D98E062A2915FE002A87D6 /* Constants.swift in Sources */,
 				30E119FE2A2643A300ED23BA /* BannerView.swift in Sources */,
 				30E119F12A26202300ED23BA /* MinutePicker.swift in Sources */,
 				30E119EF2A261FD700ED23BA /* DayView.swift in Sources */,
