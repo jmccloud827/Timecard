@@ -8,8 +8,7 @@ class ViewModel: ObservableObject, Codable {
 
     
     @Published var totalHours = 40.0
-    @Published var defaultTimeIn = getDefaultDate(isIn: true)
-    {
+    @Published var defaultTimeIn = getDefaultDate(isIn: true) {
         willSet {
             workDays.forEach { day in
                 if day.timeIn == defaultTimeIn {
@@ -23,8 +22,7 @@ class ViewModel: ObservableObject, Codable {
             }
         }
     }
-    @Published var defaultTimeOut = getDefaultDate(isIn: false)
-    {
+    @Published var defaultTimeOut = getDefaultDate(isIn: false) {
         willSet {
             workDays.forEach { day in
                 if day.timeOut == defaultTimeOut {
