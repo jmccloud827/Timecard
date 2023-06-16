@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct SheetView: View {
-    @ObservedObject var viewModel: ViewModel
+    @Binding var viewModel: ViewModel
+    
     var body: some View {
         Form {
             Section {

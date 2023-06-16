@@ -1,15 +1,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var viewModel: ViewModel
+    @Environment(\.scenePhase) var scenePhase
+    @State var viewModel: ViewModel
     
     @State private var showSheet = false
     @State private var lastPunchTime = Date.now
-    @State private var timeOut = Date.now
     @State private var weekToDate = 40.0
     @State private var addBreak = false
     @State private var breakTime = 0
-    @State private var test = false
+    
+    init(storage: String) {
+        if let viewModel = try? JSONDecoder().decode(ViewModel.self, from: Data(storage.utf8)) {
+            _viewModel = .init(wrappedValue: viewModel)
+        } else {
+            _viewModel = .init(wrappedValue: .init())
+        }
+    }
+    
     var body: some View {
         TabView(selection: $viewModel.tabSelection) {
             VStack(spacing: 0) {
@@ -30,6 +38,7 @@ struct ContentView: View {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button {
                                 showSheet = true
+                                viewModel.saveData()
                             } label: {
                                 Label("Settings", systemImage: "gearshape.fill")
                             }
@@ -42,7 +51,7 @@ struct ContentView: View {
                         }
                     }
                     .sheet(isPresented: $showSheet) {
-                        SheetView(viewModel: viewModel)
+                        SheetView(viewModel: $viewModel)
                     }
                 }
                 if !viewModel.disableAds {
@@ -74,7 +83,7 @@ struct ContentView: View {
                         }
                     }
                     .sheet(isPresented: $showSheet) {
-                        SheetView(viewModel: viewModel)
+                        SheetView(viewModel: $viewModel)
                     }
                 }
                 if !viewModel.disableAds {
@@ -86,6 +95,11 @@ struct ContentView: View {
         }
         .navigationViewStyle(.stack)
         .scrollDismissesKeyboard()
+        .onChange(of: scenePhase) { value in
+            if value != .active {
+                viewModel.saveData()
+            }
+        }
         .onAppear {
             weekToDate = viewModel.totalHours
             breakTime = viewModel.defaultBreak
@@ -100,6 +114,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(storage: "")
     }
 }

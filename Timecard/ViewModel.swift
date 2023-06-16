@@ -1,67 +1,79 @@
-import Combine
 import SwiftUI
 
-class ViewModel: ObservableObject, Codable {
+struct ViewModel: Codable {
     @AppStorage("AppState") var storage = ""
     
-    @Published var tabSelection = 1
+    var tabSelection = 1
 
-    
-    @Published var totalHours = 40.0
-    @Published var defaultTimeIn = getDefaultDate(isIn: true) {
+    var totalHours = 40.0
+    var defaultTimeIn = getDefaultDate(isIn: true) {
         willSet {
-            workDays.forEach { day in
+            workDays = workDays.map { day in
+                var day = day
                 if day.timeIn == defaultTimeIn {
                     day.timeIn = newValue
                 }
+                return day
             }
-            daysOff.forEach { day in
+            daysOff = daysOff.map { day in
+                var day = day
                 if day.timeIn == defaultTimeIn {
                     day.timeIn = newValue
                 }
+                return day
             }
         }
     }
-    @Published var defaultTimeOut = getDefaultDate(isIn: false) {
+    var defaultTimeOut = getDefaultDate(isIn: false) {
         willSet {
-            workDays.forEach { day in
+            workDays = workDays.map { day in
+                var day = day
                 if day.timeOut == defaultTimeOut {
                     day.timeOut = newValue
                 }
+                return day
             }
-            daysOff.forEach { day in
+            daysOff = daysOff.map { day in
+                var day = day
                 if day.timeOut == defaultTimeOut {
                     day.timeOut = newValue
                 }
+                return day
             }
         }
     }
-    @Published var defaultBreak = 0 {
+    var defaultBreak = 0 {
         willSet {
-            workDays.forEach { day in
+            workDays = workDays.map { day in
+                var day = day
                 if day.breakTime == defaultBreak {
                     day.breakTime = newValue
                 }
+                return day
             }
-            daysOff.forEach { day in
+            daysOff = daysOff.map { day in
+                var day = day
                 if day.breakTime == defaultBreak {
                     day.breakTime = newValue
                 }
+                return day
             }
         }
     }
-    @Published var disableAds = false
-    @Published var workDays: [Day] = [
+    var disableAds = false
+    var workDays: [Day] = [
         .init(name: "Monday", index: 1),
         .init(name: "Tuesday", index: 2),
         .init(name: "Wednesday", index: 3),
         .init(name: "Thursday", index: 4),
         .init(name: "Friday", index: 5)
     ]
-    @Published var daysOff: [Day] = [
+    var daysOff: [Day] = [
         .init(name: "Saturday", index: 6),
         .init(name: "Sunday", index: 7)
     ]
+    
+    init() {}
     
     enum CodingKeys: CodingKey {
         case tabSelection,
@@ -74,9 +86,7 @@ class ViewModel: ObservableObject, Codable {
              disableAds
     }
     
-    init() {}
-    
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         tabSelection = try container.decode(Int.self, forKey: .tabSelection)
         workDays = try container.decode(Array.self, forKey: .workDays)
@@ -100,12 +110,15 @@ class ViewModel: ObservableObject, Codable {
         try container.encode(disableAds, forKey: .disableAds)
     }
     
-    class Day: ObservableObject, Codable, Identifiable {
-        @Published var name: String
-        @Published var index: Int
-        @Published var timeIn: Date
-        @Published var timeOut: Date
-        @Published var breakTime: Int
+    struct Day: Codable, Identifiable {
+        var id: Int { index }
+        
+        var name: String
+        var index: Int
+        var timeIn = getDefaultDate(isIn: true)
+        var timeOut = getDefaultDate(isIn: false)
+        var breakTime = 0
+        
         
         init(name: String, index: Int, timeIn: Date = getDefaultDate(isIn: true), timeOut: Date = getDefaultDate(isIn: false), breakTime: Int = 0) {
             self.name = name
@@ -123,7 +136,7 @@ class ViewModel: ObservableObject, Codable {
                  breakTime
         }
         
-        required init(from decoder: Decoder) throws {
+        init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             name = try container.decode(String.self, forKey: .name)
             index = try container.decode(Int.self, forKey: .index)
@@ -154,18 +167,21 @@ class ViewModel: ObservableObject, Codable {
         return Calendar.current.date(from: comps)!
     }
     
-    func clear() {
-        workDays.forEach { day in
+    mutating func clear() {
+        workDays = workDays.map { day in
+            var day = day
             day.timeIn = defaultTimeIn
             day.timeOut = defaultTimeOut
             day.breakTime = defaultBreak
+            return day
         }
-        daysOff.forEach { day in
+        daysOff = daysOff.map { day in
+            var day = day
             day.timeIn = defaultTimeIn
             day.timeOut = defaultTimeOut
             day.breakTime = defaultBreak
+            return day
         }
-        self.objectWillChange.send()
     }
     
     func saveData() {
