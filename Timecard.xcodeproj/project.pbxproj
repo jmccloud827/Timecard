@@ -19,8 +19,7 @@
 		30B84A132B83C06200CC7DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B84A122B83C06200CC7DF8 /* Assets.xcassets */; };
 		30B84A172B83C06200CC7DF8 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		30B84A1D2B83C0EF00CC7DF8 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004243A2B7F975200177F0F /* Day.swift */; };
-		30C2F04A2BD68CF100709903 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 30C2F0492BD68CF100709903 /* GoogleMobileAds */; };
-		30C2F04C2BD68D0400709903 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C2F04B2BD68D0400709903 /* BannerView.swift */; };
+		30C2F0542BD693A700709903 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 30C2F0532BD693A700709903 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		30B84A142B83C06200CC7DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B84A1C2B83C0B100CC7DF8 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
 		30B84A2E2B83F77E00CC7DF8 /* Timecard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Timecard.entitlements; sourceTree = "<group>"; };
-		30C2F04B2BD68D0400709903 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C2F04A2BD68CF100709903 /* GoogleMobileAds in Frameworks */,
+				30C2F0542BD693A700709903 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +112,6 @@
 				300424362B7F975200177F0F /* TimecardApp.swift */,
 				300424382B7F975200177F0F /* ContentView.swift */,
 				3004243A2B7F975200177F0F /* Day.swift */,
-				30C2F04B2BD68D0400709903 /* BannerView.swift */,
 				3004243C2B7F975300177F0F /* Assets.xcassets */,
 				300424422B7F975300177F0F /* Info.plist */,
 				3004243E2B7F975300177F0F /* Preview Content */,
@@ -170,7 +167,7 @@
 			);
 			name = Timecard;
 			packageProductDependencies = (
-				30C2F0492BD68CF100709903 /* GoogleMobileAds */,
+				30C2F0532BD693A700709903 /* GoogleMobileAds */,
 			);
 			productName = Timecard;
 			productReference = 300424332B7F975200177F0F /* Timecard.app */;
@@ -258,7 +255,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C2F04C2BD68D0400709903 /* BannerView.swift in Sources */,
 				300424392B7F975200177F0F /* ContentView.swift in Sources */,
 				3004243B2B7F975200177F0F /* Day.swift in Sources */,
 				300424372B7F975200177F0F /* TimecardApp.swift in Sources */,
@@ -569,7 +565,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		30C2F0492BD68CF100709903 /* GoogleMobileAds */ = {
+		30C2F0532BD693A700709903 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 30C2F0482BD68CF100709903 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
