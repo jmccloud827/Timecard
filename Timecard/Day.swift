@@ -85,6 +85,14 @@ extension Day {
         }
         return totalHours
     }
+    
+    var lastPunch: (punch: Date, isIn: Bool)? {
+        if let punch = punches.last {
+            (punch, !punches.count.isMultiple(of: 2) && !punches.isEmpty)
+        } else {
+            nil
+        }
+    }
 }
 
 extension Double {

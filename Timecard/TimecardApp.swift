@@ -1,8 +1,11 @@
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 @main
 struct TimecardApp: App {
+    @Environment(\.scenePhase) private var scenePhase
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Day.self
@@ -19,6 +22,11 @@ struct TimecardApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onChange(of: scenePhase) {
+                    if scenePhase == .background {
+                        WidgetCenter.shared.reloadAllTimelines()
+                    }
+                }
         }
         .modelContainer(sharedModelContainer)
     }

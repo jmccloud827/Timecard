@@ -10,20 +10,16 @@ struct ContentView: View {
     @AppStorage("Default Break") private var defaultBreak = 60
     @AppStorage("Work Days") private var defaultWorkDays = "2,3,4,5,6,"
     
-    private var sorrtedDays: [Day] {
+    private var sortedDays: [Day] {
         days.filter { day in workDays.contains(day.id) }.sorted { $0.id.rawValue < $1.id.rawValue }
     }
     
     private var weekToDate: Double {
-        sorrtedDays.map { day in day.totalHours }.reduce(0, +)
-    }
-    
-    private var lastPunch: Date? {
-        sorrtedDays.last { day in !day.punches.isEmpty }?.punches.last
+        sortedDays.map { day in day.totalHours }.reduce(0, +)
     }
     
     private var lastDay: Day? {
-        sorrtedDays.last { day in !day.punches.isEmpty }
+        sortedDays.last { day in !day.punches.isEmpty }
     }
     
     private var currentDay: Day? {
@@ -52,6 +48,9 @@ struct ContentView: View {
     @State private var inputLastPunch = Date.now
     @State private var addBreak = true
     @State private var inputBreakMinutes = 0
+    @State private var update = false
+    
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     var body: some View {
         TabView {
@@ -63,7 +62,7 @@ struct ContentView: View {
                             
                             Spacer()
                             
-                            Text("\(lastPunch?.formatted() ?? "N/A")")
+                            Text("\(lastDay?.lastPunch?.punch.formatted() ?? "N/A")")
                         }
                         
                         HStack {
@@ -74,42 +73,140 @@ struct ContentView: View {
                             Text("\(weekToDate.toString())")
                         }
                         
-                        HStack {
-                            Text("You will hit \(defaultHours.toString()) for today at:")
-                            
-                            Spacer()
-                            
-                            if let currentDay, let lastPunch {
-                                let hoursLeft = defaultHours - currentDay.totalHours
-                                if hoursLeft > 0 {
-                                    DatePicker("", selection: Binding.constant(lastPunch.addingTimeInterval(hoursLeft * 60 * 60)), displayedComponents: .hourAndMinute)
-                                        .labelsHidden()
-                                        .disabled(true)
+                        let calcHoursLeft: (Day) -> Double = { currentDay in defaultHours - currentDay.totalHours }
+                        let calcHoursLeftWithBreak: (Day) -> Double = { currentDay in calcHoursLeft(currentDay) + Double(defaultBreak) / 60.0 }
+                        let calcLastPunch: (Date, Bool) -> Date = { punch, isIn in isIn ? punch : Date.now }
+                        VStack(spacing: 0) {
+                            HStack {
+                                Text("You will hit \(defaultHours.toString()) for today at:")
+                                
+                                Spacer()
+                                
+                                if let currentDay, let lastPunch = currentDay.lastPunch {
+                                    var hoursLeft = calcHoursLeft(currentDay)
+                                    var newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                    Group {
+                                        if hoursLeft > 0 {
+                                            let picker =
+                                                DatePicker("", selection: Binding.constant(newLastPunch.addingTimeInterval(hoursLeft * 60 * 60)), displayedComponents: .hourAndMinute)
+                                                .labelsHidden()
+                                                .disabled(true)
+                                            if update {
+                                                picker
+                                            } else {
+                                                picker
+                                            }
+                                        } else {
+                                            Image(systemName: "checkmark")
+                                        }
+                                    }
+                                    .onReceive(timer) { _ in
+                                        hoursLeft = calcHoursLeft(currentDay)
+                                        newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                        update.toggle()
+                                    }
                                 } else {
-                                    Image(systemName: "checkmark")
+                                    Text("N/A")
                                 }
-                            } else {
-                                Text("N/A")
+                            }
+                            
+                            HStack {
+                                Spacer()
+                                
+                                Text("with \(defaultBreak) minute break:")
+                                
+                                Spacer()
+                                
+                                if let currentDay, let lastPunch = currentDay.lastPunch {
+                                    var hoursLeft = calcHoursLeftWithBreak(currentDay)
+                                    var newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                    Group {
+                                        let picker =
+                                            DatePicker("", selection: Binding.constant(newLastPunch.addingTimeInterval(hoursLeft * 60 * 60)), displayedComponents: .hourAndMinute)
+                                            .labelsHidden()
+                                            .disabled(true)
+                                        if update {
+                                            picker
+                                        } else {
+                                            picker
+                                        }
+                                    }
+                                    .onReceive(timer) { _ in
+                                        hoursLeft = calcHoursLeftWithBreak(currentDay)
+                                        newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                    }
+                                } else {
+                                    Text("N/A")
+                                }
                             }
                         }
                         
                         if weekToDate > defaultTotalHours - defaultHours * 1.1 {
-                            HStack {
-                                Text("You will hit \(defaultTotalHours.toString()) at:")
-                                
-                                Spacer()
-                                
-                                if let currentDay, let lastPunch {
-                                    let hoursLeft = defaultHours - currentDay.totalHours
-                                    if hoursLeft > 0 {
-                                        DatePicker("", selection: Binding.constant(getTimeOut(lastPunch: lastPunch, weekToDate: weekToDate)), displayedComponents: .hourAndMinute)
-                                            .labelsHidden()
-                                            .disabled(true)
+                            VStack(spacing: 0) {
+                                HStack {
+                                    Text("You will hit \(defaultTotalHours.toString()) at:")
+                                    
+                                    Spacer()
+                                    
+                                    if let currentDay, let lastPunch = currentDay.lastPunch {
+                                        var hoursLeft = calcHoursLeft(currentDay)
+                                        var newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                        Group {
+                                            if hoursLeft > 0 {
+                                                let picker =
+                                                    DatePicker("", selection: Binding.constant(getTimeOut(lastPunch: newLastPunch, weekToDate: weekToDate)), displayedComponents: .hourAndMinute)
+                                                    .labelsHidden()
+                                                    .disabled(true)
+                                                if update {
+                                                    picker
+                                                } else {
+                                                    picker
+                                                }
+                                            } else {
+                                                Image(systemName: "checkmark")
+                                            }
+                                        }
+                                        .onReceive(timer) { _ in
+                                            hoursLeft = calcHoursLeft(currentDay)
+                                            newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                        }
                                     } else {
-                                        Image(systemName: "checkmark")
+                                        Text("N/A")
                                     }
-                                } else {
-                                    Text("N/A")
+                                }
+                                
+                                HStack {
+                                    Spacer()
+                                    
+                                    Text("with \(defaultBreak) minute break:")
+                                    
+                                    Spacer()
+                                    
+                                    if let currentDay, let lastPunch = currentDay.lastPunch {
+                                        var hoursLeft = calcHoursLeftWithBreak(currentDay)
+                                        var newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                        Group {
+                                            if hoursLeft > 0 {
+                                                let picker =
+                                                    DatePicker("", selection: Binding.constant(getTimeOut(lastPunch: newLastPunch, weekToDate: weekToDate)), displayedComponents: .hourAndMinute)
+                                                    .labelsHidden()
+                                                    .disabled(true)
+                                                if update {
+                                                    picker
+                                                } else {
+                                                    picker
+                                                }
+                                            } else {
+                                                Image(systemName: "checkmark")
+                                            }
+                                        }
+                                        .onReceive(timer) { _ in
+                                            hoursLeft = calcHoursLeftWithBreak(currentDay)
+                                            newLastPunch = calcLastPunch(lastPunch.punch, lastPunch.isIn)
+                                        }
+                                    } else {
+                                        Text("N/A")
+                                    }
                                 }
                             }
                         }
@@ -236,7 +333,7 @@ struct ContentView: View {
                         Text(weekToDate.toString())
                     }
                     
-                    ForEach(sorrtedDays) { day in
+                    ForEach(sortedDays) { day in
                         DayView(day: day)
                     }
                 }
@@ -269,18 +366,24 @@ struct ContentView: View {
                                 .frame(width: 50)
                         }
                         
+                        let calculate = {
+                            if let lastDay, let lastPunch = currentDay?.lastPunch {
+                                let now = (Date.now).setWeekday(weekday: lastDay.id)
+                                var timeToAdd = 0.0
+                                if lastPunch.isIn && now > lastPunch.punch {
+                                    timeToAdd = lastPunch.punch.timeBetween((Date.now).setWeekday(weekday: lastDay.id))
+                                }
+                                inputWeekToDate = (Double(weekToDate.toString()) ?? 0.0) + (Double(timeToAdd.toString()) ?? 0.0)
+                                inputLastPunch = lastPunch.isIn ? lastPunch.punch : Date.now
+                                inputBreakMinutes = defaultBreak
+                            }
+                        }
                         DatePicker("Last Punch Time", selection: $inputLastPunch, displayedComponents: .hourAndMinute)
                             .onAppear {
-                                if let lastDay, let lastPunch {
-                                    let now = (Date.now).setWeekday(weekday: lastDay.id)
-                                    var timeToAdd = 0.0
-                                    if now > lastPunch {
-                                        timeToAdd = lastPunch.timeBetween((Date.now).setWeekday(weekday: lastDay.id))
-                                    }
-                                    inputWeekToDate = (Double(weekToDate.toString()) ?? 0.0) + (Double(timeToAdd.toString()) ?? 0.0)
-                                    inputLastPunch = lastPunch
-                                    inputBreakMinutes = defaultBreak
-                                }
+                                calculate()
+                            }
+                            .onReceive(timer) { _ in
+                                calculate()
                             }
                         
                         Toggle("Add Break?", isOn: $addBreak)
@@ -310,7 +413,7 @@ struct ContentView: View {
         .onAppear {
             for weekday in Days.allCases {
                 if !days.contains(where: { day in day.id == weekday }) {
-                    let day = Day.init(id: weekday)
+                    let day = Day(id: weekday)
                     modelContext.insert(day)
                 }
             }
