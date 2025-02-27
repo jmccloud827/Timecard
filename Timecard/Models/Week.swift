@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model class Week: Identifiable {
-    @Attribute(.unique) var id = UUID()
+    var id = UUID()
     
     var sunday = Day(day: .sunday)
     
@@ -17,10 +17,6 @@ import SwiftData
     var friday = Day(day: .friday)
     
     var saturday = Day(day: .saturday)
-    
-    var defaultTotalHours = 40.0
-    var defaultHours = 8.0
-    var defaultBreak = 60
     
     init() {}
     

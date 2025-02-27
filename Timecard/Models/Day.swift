@@ -2,7 +2,7 @@ import Foundation
 import SwiftData
 
 @Model class Day: Identifiable {
-    @Attribute(.unique) var id = UUID()
+    var id = UUID()
     var day: Days
     var punches: [Date]
     
@@ -39,6 +39,10 @@ import SwiftData
         } else {
             nil
         }
+    }
+    
+    var isPunchButtonDisabled: Bool {
+        punches.last?.timeBetween(Date.now) ?? 1 < (1 / 60)
     }
 }
 

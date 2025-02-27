@@ -25,16 +25,33 @@
 		304852482D70A3FC00EE5682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852462D70A3FC00EE5682 /* Settings.swift */; };
 		3048524A2D70C8EF00EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
 		3048524B2D70CAC000EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
+		304852532D70F11300EE5682 /* TimecardWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852522D70F11300EE5682 /* TimecardWatchApp.swift */; };
+		304852552D70F11300EE5682 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852542D70F11300EE5682 /* Dashboard.swift */; };
+		304852572D70F11500EE5682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 304852562D70F11500EE5682 /* Assets.xcassets */; };
+		3048525D2D70F11500EE5682 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 304852502D70F11300EE5682 /* WatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		304852652D70F17900EE5682 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 304852632D70F17900EE5682 /* Preview Assets.xcassets */; };
+		304852662D70F18A00EE5682 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852432D709D1600EE5682 /* Week.swift */; };
+		304852672D70F18F00EE5682 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004243A2B7F975200177F0F /* Day.swift */; };
+		304852682D70F19600EE5682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852462D70A3FC00EE5682 /* Settings.swift */; };
+		304852692D70F19E00EE5682 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048523D2D6FAC2D00EE5682 /* Extensions.swift */; };
+		3048526C2D70F75800EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
 		30B84A082B83C06100CC7DF8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A072B83C06100CC7DF8 /* WidgetKit.framework */; };
 		30B84A0A2B83C06100CC7DF8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A092B83C06100CC7DF8 /* SwiftUI.framework */; };
 		30B84A0D2B83C06100CC7DF8 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */; };
 		30B84A112B83C06100CC7DF8 /* TimecardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */; };
 		30B84A132B83C06200CC7DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B84A122B83C06200CC7DF8 /* Assets.xcassets */; };
-		30B84A172B83C06200CC7DF8 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		30B84A172B83C06200CC7DF8 /* Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30B84A052B83C06100CC7DF8 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		30B84A1D2B83C0EF00CC7DF8 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004243A2B7F975200177F0F /* Day.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3048525B2D70F11500EE5682 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3004242B2B7F975200177F0F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3048524F2D70F11300EE5682;
+			remoteInfo = "TimecardWatch Watch App";
+		};
 		30B84A152B83C06200CC7DF8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3004242B2B7F975200177F0F /* Project object */;
@@ -45,13 +62,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		304852612D70F11500EE5682 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				3048525D2D70F11500EE5682 /* WatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B84A182B83C06200CC7DF8 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				30B84A172B83C06200CC7DF8 /* WidgetExtension.appex in Embed Foundation Extensions */,
+				30B84A172B83C06200CC7DF8 /* Widget.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,7 +102,15 @@
 		304852432D709D1600EE5682 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
 		304852462D70A3FC00EE5682 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		304852492D70C8EF00EE5682 /* EstimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimationView.swift; sourceTree = "<group>"; };
-		30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		304852502D70F11300EE5682 /* WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		304852522D70F11300EE5682 /* TimecardWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardWatchApp.swift; sourceTree = "<group>"; };
+		304852542D70F11300EE5682 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		304852562D70F11500EE5682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		304852632D70F17900EE5682 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3048526B2D70F71500EE5682 /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchApp.entitlements; sourceTree = "<group>"; };
+		3048526D2D70FB8F00EE5682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3048526E2D70FBE300EE5682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30B84A052B83C06100CC7DF8 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B84A072B83C06100CC7DF8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		30B84A092B83C06100CC7DF8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
@@ -87,6 +123,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		300424302B7F975200177F0F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3048524D2D70F11300EE5682 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -110,6 +153,7 @@
 			children = (
 				300424352B7F975200177F0F /* Timecard */,
 				30B84A0B2B83C06100CC7DF8 /* Widget */,
+				304852622D70F16900EE5682 /* WatchApp */,
 				30B84A062B83C06100CC7DF8 /* Frameworks */,
 				300424342B7F975200177F0F /* Products */,
 			);
@@ -119,7 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				300424332B7F975200177F0F /* Timecard.app */,
-				30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */,
+				30B84A052B83C06100CC7DF8 /* Widget.appex */,
+				304852502D70F11300EE5682 /* WatchApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +179,7 @@
 				304852422D6FB0DA00EE5682 /* Views */,
 				3048523D2D6FAC2D00EE5682 /* Extensions.swift */,
 				3004243C2B7F975300177F0F /* Assets.xcassets */,
+				3048526D2D70FB8F00EE5682 /* Info.plist */,
 				30B84A2E2B83F77E00CC7DF8 /* Timecard.entitlements */,
 				3004243E2B7F975300177F0F /* Preview Content */,
 			);
@@ -178,6 +224,27 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		304852622D70F16900EE5682 /* WatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				304852522D70F11300EE5682 /* TimecardWatchApp.swift */,
+				304852542D70F11300EE5682 /* Dashboard.swift */,
+				304852562D70F11500EE5682 /* Assets.xcassets */,
+				3048526E2D70FBE300EE5682 /* Info.plist */,
+				3048526B2D70F71500EE5682 /* WatchApp.entitlements */,
+				3048526A2D70F21C00EE5682 /* Preview Content */,
+			);
+			path = WatchApp;
+			sourceTree = "<group>";
+		};
+		3048526A2D70F21C00EE5682 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				304852632D70F17900EE5682 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		30B84A062B83C06100CC7DF8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,8 +260,8 @@
 				30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */,
 				30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */,
 				30B84A122B83C06200CC7DF8 /* Assets.xcassets */,
-				30B84A1C2B83C0B100CC7DF8 /* WidgetExtension.entitlements */,
 				30B84A142B83C06200CC7DF8 /* Info.plist */,
+				30B84A1C2B83C0B100CC7DF8 /* WidgetExtension.entitlements */,
 			);
 			path = Widget;
 			sourceTree = "<group>";
@@ -210,11 +277,13 @@
 				300424302B7F975200177F0F /* Frameworks */,
 				300424312B7F975200177F0F /* Resources */,
 				30B84A182B83C06200CC7DF8 /* Embed Foundation Extensions */,
+				304852612D70F11500EE5682 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				30B84A162B83C06200CC7DF8 /* PBXTargetDependency */,
+				3048525C2D70F11500EE5682 /* PBXTargetDependency */,
 			);
 			name = Timecard;
 			packageProductDependencies = (
@@ -223,9 +292,28 @@
 			productReference = 300424332B7F975200177F0F /* Timecard.app */;
 			productType = "com.apple.product-type.application";
 		};
-		30B84A042B83C06100CC7DF8 /* WidgetExtension */ = {
+		3048524F2D70F11300EE5682 /* WatchApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30B84A1B2B83C06200CC7DF8 /* Build configuration list for PBXNativeTarget "WidgetExtension" */;
+			buildConfigurationList = 3048525E2D70F11500EE5682 /* Build configuration list for PBXNativeTarget "WatchApp" */;
+			buildPhases = (
+				3048524C2D70F11300EE5682 /* Sources */,
+				3048524D2D70F11300EE5682 /* Frameworks */,
+				3048524E2D70F11300EE5682 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WatchApp;
+			packageProductDependencies = (
+			);
+			productName = "TimecardWatch Watch App";
+			productReference = 304852502D70F11300EE5682 /* WatchApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30B84A042B83C06100CC7DF8 /* Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30B84A1B2B83C06200CC7DF8 /* Build configuration list for PBXNativeTarget "Widget" */;
 			buildPhases = (
 				30B84A012B83C06100CC7DF8 /* Sources */,
 				30B84A022B83C06100CC7DF8 /* Frameworks */,
@@ -235,9 +323,9 @@
 			);
 			dependencies = (
 			);
-			name = WidgetExtension;
+			name = Widget;
 			productName = WidgetExtension;
-			productReference = 30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */;
+			productReference = 30B84A052B83C06100CC7DF8 /* Widget.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -247,11 +335,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1520;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					300424322B7F975200177F0F = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					3048524F2D70F11300EE5682 = {
+						CreatedOnToolsVersion = 16.2;
 					};
 					30B84A042B83C06100CC7DF8 = {
 						CreatedOnToolsVersion = 15.2;
@@ -274,7 +365,8 @@
 			projectRoot = "";
 			targets = (
 				300424322B7F975200177F0F /* Timecard */,
-				30B84A042B83C06100CC7DF8 /* WidgetExtension */,
+				30B84A042B83C06100CC7DF8 /* Widget */,
+				3048524F2D70F11300EE5682 /* WatchApp */,
 			);
 		};
 /* End PBXProject section */
@@ -286,6 +378,15 @@
 			files = (
 				300424402B7F975300177F0F /* Preview Assets.xcassets in Resources */,
 				3004243D2B7F975300177F0F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3048524E2D70F11300EE5682 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				304852652D70F17900EE5682 /* Preview Assets.xcassets in Resources */,
+				304852572D70F11500EE5682 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +420,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3048524C2D70F11300EE5682 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				304852552D70F11300EE5682 /* Dashboard.swift in Sources */,
+				304852692D70F19E00EE5682 /* Extensions.swift in Sources */,
+				304852532D70F11300EE5682 /* TimecardWatchApp.swift in Sources */,
+				304852672D70F18F00EE5682 /* Day.swift in Sources */,
+				304852662D70F18A00EE5682 /* Week.swift in Sources */,
+				3048526C2D70F75800EE5682 /* EstimationView.swift in Sources */,
+				304852682D70F19600EE5682 /* Settings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30B84A012B83C06100CC7DF8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,9 +451,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3048525C2D70F11500EE5682 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3048524F2D70F11300EE5682 /* WatchApp */;
+			targetProxy = 3048525B2D70F11500EE5682 /* PBXContainerItemProxy */;
+		};
 		30B84A162B83C06200CC7DF8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 30B84A042B83C06100CC7DF8 /* WidgetExtension */;
+			target = 30B84A042B83C06100CC7DF8 /* Widget */;
 			targetProxy = 30B84A152B83C06200CC7DF8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -475,7 +595,7 @@
 				DEVELOPMENT_TEAM = JY83NY58JG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Timecard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -485,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -506,7 +626,7 @@
 				DEVELOPMENT_TEAM = JY83NY58JG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = Timecard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -516,12 +636,76 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3048525F2D70F11500EE5682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WatchApp/WatchApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = JY83NY58JG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TimecardWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacobmccloud.Timecard;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard.watchapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
+			};
+			name = Debug;
+		};
+		304852602D70F11500EE5682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = WatchApp/WatchApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"WatchApp/Preview Content\"";
+				DEVELOPMENT_TEAM = JY83NY58JG;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WatchApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TimecardWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.jacobmccloud.Timecard;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard.watchapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.2;
 			};
 			name = Release;
 		};
@@ -543,7 +727,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -571,7 +755,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard.Widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -602,7 +786,16 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30B84A1B2B83C06200CC7DF8 /* Build configuration list for PBXNativeTarget "WidgetExtension" */ = {
+		3048525E2D70F11500EE5682 /* Build configuration list for PBXNativeTarget "WatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3048525F2D70F11500EE5682 /* Debug */,
+				304852602D70F11500EE5682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30B84A1B2B83C06200CC7DF8 /* Build configuration list for PBXNativeTarget "Widget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				30B84A192B83C06200CC7DF8 /* Debug */,

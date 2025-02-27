@@ -51,7 +51,7 @@ struct Dashboard: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .controlSize(.large)
-                    .disabled(currentDay.punches.last?.timeBetween(Date.now) ?? 1 < (1 / 60))
+                    .disabled(currentDay.isPunchButtonDisabled)
                     .padding()
                 }
                 .background(colorScheme == .light ? Color.white : Color(.secondarySystemGroupedBackground))

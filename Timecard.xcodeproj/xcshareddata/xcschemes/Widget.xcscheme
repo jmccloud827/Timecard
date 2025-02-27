@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "30B84A042B83C06100CC7DF8"
-               BuildableName = "WidgetExtension.appex"
-               BlueprintName = "WidgetExtension"
+               BuildableName = "Widget.appex"
+               BlueprintName = "Widget"
                ReferencedContainer = "container:Timecard.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "30B84A042B83C06100CC7DF8"
-            BuildableName = "WidgetExtension.appex"
-            BlueprintName = "WidgetExtension"
+            BuildableName = "Widget.appex"
+            BlueprintName = "Widget"
             ReferencedContainer = "container:Timecard.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>

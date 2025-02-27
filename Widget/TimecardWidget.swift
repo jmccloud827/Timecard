@@ -102,7 +102,7 @@ struct TimecardWidgetEntryView: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent)
-                    .disabled(week.currentDay.punches.last?.timeBetween(Date.now) ?? 1 < (1 / 60))
+                    .disabled(week.currentDay.isPunchButtonDisabled)
                 }
                 .environmentObject(settings)
             } else {
