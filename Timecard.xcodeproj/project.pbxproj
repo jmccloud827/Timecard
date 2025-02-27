@@ -8,18 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		300424372B7F975200177F0F /* TimecardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300424362B7F975200177F0F /* TimecardApp.swift */; };
-		300424392B7F975200177F0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300424382B7F975200177F0F /* ContentView.swift */; };
+		300424392B7F975200177F0F /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300424382B7F975200177F0F /* Tabs.swift */; };
 		3004243B2B7F975200177F0F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004243A2B7F975200177F0F /* Day.swift */; };
 		3004243D2B7F975300177F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004243C2B7F975300177F0F /* Assets.xcassets */; };
 		300424402B7F975300177F0F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004243F2B7F975300177F0F /* Preview Assets.xcassets */; };
+		3048522D2D6F848200EE5682 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048522C2D6F848200EE5682 /* DayView.swift */; };
+		3048522F2D6F8B5200EE5682 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048522E2D6F8B5200EE5682 /* Dashboard.swift */; };
+		304852352D6F9AE100EE5682 /* Timecard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852342D6F9AE100EE5682 /* Timecard.swift */; };
+		304852372D6F9C4100EE5682 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852362D6F9C4100EE5682 /* Calculator.swift */; };
+		3048523E2D6FAC2D00EE5682 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048523D2D6FAC2D00EE5682 /* Extensions.swift */; };
+		3048523F2D6FACAE00EE5682 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048523D2D6FAC2D00EE5682 /* Extensions.swift */; };
+		304852412D6FACE000EE5682 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852402D6FACDF00EE5682 /* SettingsView.swift */; };
+		304852442D709D1600EE5682 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852432D709D1600EE5682 /* Week.swift */; };
+		304852452D709D1600EE5682 /* Week.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852432D709D1600EE5682 /* Week.swift */; };
+		304852472D70A3FC00EE5682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852462D70A3FC00EE5682 /* Settings.swift */; };
+		304852482D70A3FC00EE5682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852462D70A3FC00EE5682 /* Settings.swift */; };
+		3048524A2D70C8EF00EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
+		3048524B2D70CAC000EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
 		30B84A082B83C06100CC7DF8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A072B83C06100CC7DF8 /* WidgetKit.framework */; };
 		30B84A0A2B83C06100CC7DF8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A092B83C06100CC7DF8 /* SwiftUI.framework */; };
 		30B84A0D2B83C06100CC7DF8 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */; };
-		30B84A112B83C06100CC7DF8 /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A102B83C06100CC7DF8 /* Widget.swift */; };
+		30B84A112B83C06100CC7DF8 /* TimecardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */; };
 		30B84A132B83C06200CC7DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B84A122B83C06200CC7DF8 /* Assets.xcassets */; };
 		30B84A172B83C06200CC7DF8 /* WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		30B84A1D2B83C0EF00CC7DF8 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004243A2B7F975200177F0F /* Day.swift */; };
-		30C2F0542BD693A700709903 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 30C2F0532BD693A700709903 /* GoogleMobileAds */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,16 +61,24 @@
 /* Begin PBXFileReference section */
 		300424332B7F975200177F0F /* Timecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timecard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300424362B7F975200177F0F /* TimecardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardApp.swift; sourceTree = "<group>"; };
-		300424382B7F975200177F0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		300424382B7F975200177F0F /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		3004243A2B7F975200177F0F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3004243C2B7F975300177F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3004243F2B7F975300177F0F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		300424422B7F975300177F0F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3048522C2D6F848200EE5682 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		3048522E2D6F8B5200EE5682 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
+		304852342D6F9AE100EE5682 /* Timecard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timecard.swift; sourceTree = "<group>"; };
+		304852362D6F9C4100EE5682 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		3048523D2D6FAC2D00EE5682 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		304852402D6FACDF00EE5682 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		304852432D709D1600EE5682 /* Week.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Week.swift; sourceTree = "<group>"; };
+		304852462D70A3FC00EE5682 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		304852492D70C8EF00EE5682 /* EstimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimationView.swift; sourceTree = "<group>"; };
 		30B84A052B83C06100CC7DF8 /* WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = WidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B84A072B83C06100CC7DF8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		30B84A092B83C06100CC7DF8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
-		30B84A102B83C06100CC7DF8 /* Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardWidget.swift; sourceTree = "<group>"; };
 		30B84A122B83C06200CC7DF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B84A142B83C06200CC7DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30B84A1C2B83C0B100CC7DF8 /* WidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -70,7 +90,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30C2F0542BD693A700709903 /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,12 +127,14 @@
 		300424352B7F975200177F0F /* Timecard */ = {
 			isa = PBXGroup;
 			children = (
-				30B84A2E2B83F77E00CC7DF8 /* Timecard.entitlements */,
 				300424362B7F975200177F0F /* TimecardApp.swift */,
-				300424382B7F975200177F0F /* ContentView.swift */,
-				3004243A2B7F975200177F0F /* Day.swift */,
+				300424382B7F975200177F0F /* Tabs.swift */,
+				3048523B2D6FABFC00EE5682 /* Tabs */,
+				3048523C2D6FAC1300EE5682 /* Models */,
+				304852422D6FB0DA00EE5682 /* Views */,
+				3048523D2D6FAC2D00EE5682 /* Extensions.swift */,
 				3004243C2B7F975300177F0F /* Assets.xcassets */,
-				300424422B7F975300177F0F /* Info.plist */,
+				30B84A2E2B83F77E00CC7DF8 /* Timecard.entitlements */,
 				3004243E2B7F975300177F0F /* Preview Content */,
 			);
 			path = Timecard;
@@ -125,6 +146,36 @@
 				3004243F2B7F975300177F0F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3048523B2D6FABFC00EE5682 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				3048522E2D6F8B5200EE5682 /* Dashboard.swift */,
+				304852342D6F9AE100EE5682 /* Timecard.swift */,
+				304852362D6F9C4100EE5682 /* Calculator.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		3048523C2D6FAC1300EE5682 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				304852432D709D1600EE5682 /* Week.swift */,
+				3004243A2B7F975200177F0F /* Day.swift */,
+				304852462D70A3FC00EE5682 /* Settings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		304852422D6FB0DA00EE5682 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3048522C2D6F848200EE5682 /* DayView.swift */,
+				304852402D6FACDF00EE5682 /* SettingsView.swift */,
+				304852492D70C8EF00EE5682 /* EstimationView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		30B84A062B83C06100CC7DF8 /* Frameworks */ = {
@@ -140,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */,
-				30B84A102B83C06100CC7DF8 /* Widget.swift */,
+				30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */,
 				30B84A122B83C06200CC7DF8 /* Assets.xcassets */,
 				30B84A1C2B83C0B100CC7DF8 /* WidgetExtension.entitlements */,
 				30B84A142B83C06200CC7DF8 /* Info.plist */,
@@ -167,7 +218,6 @@
 			);
 			name = Timecard;
 			packageProductDependencies = (
-				30C2F0532BD693A700709903 /* GoogleMobileAds */,
 			);
 			productName = Timecard;
 			productReference = 300424332B7F975200177F0F /* Timecard.app */;
@@ -198,7 +248,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					300424322B7F975200177F0F = {
 						CreatedOnToolsVersion = 15.2;
@@ -218,7 +268,6 @@
 			);
 			mainGroup = 3004242A2B7F975200177F0F;
 			packageReferences = (
-				30C2F0482BD68CF100709903 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 300424342B7F975200177F0F /* Products */;
 			projectDirPath = "";
@@ -255,9 +304,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				300424392B7F975200177F0F /* ContentView.swift in Sources */,
+				300424392B7F975200177F0F /* Tabs.swift in Sources */,
 				3004243B2B7F975200177F0F /* Day.swift in Sources */,
+				304852412D6FACE000EE5682 /* SettingsView.swift in Sources */,
+				3048522D2D6F848200EE5682 /* DayView.swift in Sources */,
+				304852372D6F9C4100EE5682 /* Calculator.swift in Sources */,
+				304852442D709D1600EE5682 /* Week.swift in Sources */,
+				304852352D6F9AE100EE5682 /* Timecard.swift in Sources */,
 				300424372B7F975200177F0F /* TimecardApp.swift in Sources */,
+				3048523E2D6FAC2D00EE5682 /* Extensions.swift in Sources */,
+				3048524A2D70C8EF00EE5682 /* EstimationView.swift in Sources */,
+				304852482D70A3FC00EE5682 /* Settings.swift in Sources */,
+				3048522F2D6F8B5200EE5682 /* Dashboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,9 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				304852472D70A3FC00EE5682 /* Settings.swift in Sources */,
+				3048523F2D6FACAE00EE5682 /* Extensions.swift in Sources */,
 				30B84A0D2B83C06100CC7DF8 /* WidgetBundle.swift in Sources */,
 				30B84A1D2B83C0EF00CC7DF8 /* Day.swift in Sources */,
-				30B84A112B83C06100CC7DF8 /* Widget.swift in Sources */,
+				304852452D709D1600EE5682 /* Week.swift in Sources */,
+				3048524B2D70CAC000EE5682 /* EstimationView.swift in Sources */,
+				30B84A112B83C06100CC7DF8 /* TimecardWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +466,6 @@
 		300424462B7F975300177F0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Timecard/Timecard.entitlements;
@@ -414,7 +475,7 @@
 				DEVELOPMENT_TEAM = JY83NY58JG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Timecard/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -436,7 +497,6 @@
 		300424472B7F975300177F0F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Timecard/Timecard.entitlements;
@@ -446,7 +506,7 @@
 				DEVELOPMENT_TEAM = JY83NY58JG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Timecard/Info.plist;
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -552,25 +612,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		30C2F0482BD68CF100709903 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.3.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		30C2F0532BD693A700709903 /* GoogleMobileAds */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 30C2F0482BD68CF100709903 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
-			productName = GoogleMobileAds;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3004242B2B7F975200177F0F /* Project object */;
 }
