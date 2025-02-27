@@ -3,6 +3,11 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
+/// A widget that displays timecard information for the user.
+///
+/// The `TimecardWidget` provides a summary of the user's punch data, including their last punch time
+/// and estimated time to reach expected total hours. It supports multiple widget sizes and updates
+/// dynamically based on the user's settings and punch history.
 struct TimecardWidget: SwiftUI.Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "Widget", provider: Provider()) { entry in
@@ -27,6 +32,11 @@ struct TimecardWidget: SwiftUI.Widget {
     }
 }
 
+/// A view that displays the entry for the timecard widget.
+///
+/// The `TimecardWidgetEntryView` presents the last punch time, current total hours, and
+/// estimated time to reach expected hours based on the user's settings. It includes a button
+/// to punch in and supports different layouts based on the widget family.
 struct TimecardWidgetEntryView: View {
     @Environment(\.modelContext) private var modelContext
     @Environment(\.widgetFamily) private var family
@@ -42,35 +52,25 @@ struct TimecardWidgetEntryView: View {
             if let week = weeks.first {
                 VStack(spacing: 0) {
                     Group {
-                        if family == .systemSmall {
-                            VStack {
+                        let inside =
+                            Group {
                                 Text("Last punch:")
                                     .font(.headline)
-                                
-                                let date = week.currentDay.punches.last
-                                if let date {
-                                    Text(date.formatted(date: .abbreviated, time: .shortened))
-                                } else {
-                                    Text("N/A")
-                                }
+                            
+                                Text(week.lastPunch?.formatted(date: .abbreviated, time: .shortened) ?? "N/A")
+                            }
+                        if family == .systemSmall {
+                            VStack {
+                                inside
                             }
                         } else {
                             HStack {
-                                Text("Last punch:")
-                                    .font(.headline)
-                                
-                                let date = week.currentDay.punches.last
-                                if let date {
-                                    Text(date.formatted(date: .abbreviated, time: .shortened))
-                                } else {
-                                    Text("N/A")
-                                }
+                                inside
                             }
                             .padding(.bottom, family == .systemLarge ? 10 : 5)
                         }
                     }
                     .multilineTextAlignment(.center)
-                    
                     
                     if family != .systemSmall {
                         RoundedRectangle(cornerSize: .init(width: 20, height: 20), style: .continuous)
@@ -81,7 +81,7 @@ struct TimecardWidgetEntryView: View {
                                         .font(family == .systemLarge ? .body : .caption)
                                         .padding(.bottom, family == .systemLarge ? 5 : 0)
                                     
-                                    if family == .systemLarge {
+                                    if family == .systemLarge && week.currentDay.weekDay == settings.workDays.last {
                                         EstimationView(lastPunch: week.currentDay.lastPunch, currentTotalHours: week.currentDay.totalHours, expectedTotalHours: settings.defaultHours)
                                             .padding(.bottom, 5)
                                     }
@@ -121,16 +121,42 @@ struct TimecardWidgetEntryView: View {
     }
 }
 
+/// A provider that supplies timeline entries for the timecard widget.
+///
+/// The `Provider` conforms to the `TimelineProvider` protocol and is responsible for creating
+/// and managing the timeline of entries that the widget displays. It supplies placeholders,
+/// snapshots, and timelines based on the current date and time.
 struct Provider: TimelineProvider {
+    /// Creates a placeholder entry for the widget.
+    ///
+    /// This method provides a simple entry that is displayed while the widget is loading.
+    ///
+    /// - Parameter context: The context in which the placeholder is displayed.
+    /// - Returns: A `TimecardEntry` instance representing the placeholder.
     func placeholder(in _: Context) -> TimecardEntry {
         TimecardEntry(date: Date())
     }
 
+    /// Retrieves a snapshot of the widget's content.
+    ///
+    /// This method is called to get a quick snapshot of the widget's current state.
+    ///
+    /// - Parameters:
+    ///   - context: The context in which the snapshot is requested.
+    ///   - completion: A closure that is called with the snapshot entry.
     func getSnapshot(in _: Context, completion: @escaping (TimecardEntry) -> Void) {
         let entry = TimecardEntry(date: Date())
         completion(entry)
     }
 
+    /// Generates a timeline of entries for the widget.
+    ///
+    /// This method creates a series of entries based on the current date and time,
+    /// providing updates for the widget at specified intervals.
+    ///
+    /// - Parameters:
+    ///   - context: The context in which the timeline is generated.
+    ///   - completion: A closure that is called with the generated timeline.
     func getTimeline(in _: Context, completion: @escaping (Timeline<TimecardEntry>) -> Void) {
         var entries: [TimecardEntry] = []
 
@@ -146,15 +172,30 @@ struct Provider: TimelineProvider {
     }
 }
 
+/// A structure representing an entry in the timecard widget's timeline.
+///
+/// The `TimecardEntry` conforms to the `TimelineEntry` protocol and contains a date
+/// that represents the time associated with the entry.
 struct TimecardEntry: TimelineEntry {
     let date: Date
 }
 
+/// An intent that handles adding a punch to the user's timecard.
+///
+/// The `PunchAppIntent` conforms to the `AppIntent` protocol and provides functionality
+/// to add a punch entry when triggered from the widget.
 struct PunchAppIntent: AppIntent {
     nonisolated static let title: LocalizedStringResource = "Add punch"
     
+    /// Initializes a new instance of the intent.
     init() {}
     
+    /// Performs the action of adding a punch to the timecard.
+    ///
+    /// This method adds the current time as a punch entry to the user's timecard,
+    /// saves the changes to the model, and reloads the widget timelines.
+    ///
+    /// - Returns: An `IntentResult` indicating the result of the operation.
     @MainActor func perform() async throws -> some IntentResult {
         let config = ModelConfiguration(isStoredInMemoryOnly: false)
         let container = try! ModelContainer(for: Week.self, configurations: config)

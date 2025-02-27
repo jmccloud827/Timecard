@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		300424372B7F975200177F0F /* TimecardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300424362B7F975200177F0F /* TimecardApp.swift */; };
+		300424372B7F975200177F0F /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300424362B7F975200177F0F /* App.swift */; };
 		300424392B7F975200177F0F /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300424382B7F975200177F0F /* Tabs.swift */; };
 		3004243B2B7F975200177F0F /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004243A2B7F975200177F0F /* Day.swift */; };
 		3004243D2B7F975300177F0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3004243C2B7F975300177F0F /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		304852482D70A3FC00EE5682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852462D70A3FC00EE5682 /* Settings.swift */; };
 		3048524A2D70C8EF00EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
 		3048524B2D70CAC000EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
-		304852532D70F11300EE5682 /* TimecardWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852522D70F11300EE5682 /* TimecardWatchApp.swift */; };
+		304852532D70F11300EE5682 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852522D70F11300EE5682 /* WatchApp.swift */; };
 		304852552D70F11300EE5682 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852542D70F11300EE5682 /* Dashboard.swift */; };
 		304852572D70F11500EE5682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 304852562D70F11500EE5682 /* Assets.xcassets */; };
 		3048525D2D70F11500EE5682 /* WatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 304852502D70F11300EE5682 /* WatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -37,7 +37,7 @@
 		3048526C2D70F75800EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
 		30B84A082B83C06100CC7DF8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A072B83C06100CC7DF8 /* WidgetKit.framework */; };
 		30B84A0A2B83C06100CC7DF8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A092B83C06100CC7DF8 /* SwiftUI.framework */; };
-		30B84A0D2B83C06100CC7DF8 /* WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */; };
+		30B84A0D2B83C06100CC7DF8 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A0C2B83C06100CC7DF8 /* Bundle.swift */; };
 		30B84A112B83C06100CC7DF8 /* TimecardWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */; };
 		30B84A132B83C06200CC7DF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B84A122B83C06200CC7DF8 /* Assets.xcassets */; };
 		30B84A172B83C06200CC7DF8 /* Widget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 30B84A052B83C06100CC7DF8 /* Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -88,7 +88,7 @@
 
 /* Begin PBXFileReference section */
 		300424332B7F975200177F0F /* Timecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timecard.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		300424362B7F975200177F0F /* TimecardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardApp.swift; sourceTree = "<group>"; };
+		300424362B7F975200177F0F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		300424382B7F975200177F0F /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		3004243A2B7F975200177F0F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		3004243C2B7F975300177F0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		304852462D70A3FC00EE5682 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		304852492D70C8EF00EE5682 /* EstimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimationView.swift; sourceTree = "<group>"; };
 		304852502D70F11300EE5682 /* WatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		304852522D70F11300EE5682 /* TimecardWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardWatchApp.swift; sourceTree = "<group>"; };
+		304852522D70F11300EE5682 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		304852542D70F11300EE5682 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
 		304852562D70F11500EE5682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		304852632D70F17900EE5682 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		30B84A052B83C06100CC7DF8 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B84A072B83C06100CC7DF8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		30B84A092B83C06100CC7DF8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetBundle.swift; sourceTree = "<group>"; };
+		30B84A0C2B83C06100CC7DF8 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimecardWidget.swift; sourceTree = "<group>"; };
 		30B84A122B83C06200CC7DF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30B84A142B83C06200CC7DF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		300424352B7F975200177F0F /* Timecard */ = {
 			isa = PBXGroup;
 			children = (
-				300424362B7F975200177F0F /* TimecardApp.swift */,
+				300424362B7F975200177F0F /* App.swift */,
 				300424382B7F975200177F0F /* Tabs.swift */,
 				3048523B2D6FABFC00EE5682 /* Tabs */,
 				3048523C2D6FAC1300EE5682 /* Models */,
@@ -227,7 +227,7 @@
 		304852622D70F16900EE5682 /* WatchApp */ = {
 			isa = PBXGroup;
 			children = (
-				304852522D70F11300EE5682 /* TimecardWatchApp.swift */,
+				304852522D70F11300EE5682 /* WatchApp.swift */,
 				304852542D70F11300EE5682 /* Dashboard.swift */,
 				304852562D70F11500EE5682 /* Assets.xcassets */,
 				3048526E2D70FBE300EE5682 /* Info.plist */,
@@ -257,7 +257,7 @@
 		30B84A0B2B83C06100CC7DF8 /* Widget */ = {
 			isa = PBXGroup;
 			children = (
-				30B84A0C2B83C06100CC7DF8 /* WidgetBundle.swift */,
+				30B84A0C2B83C06100CC7DF8 /* Bundle.swift */,
 				30B84A102B83C06100CC7DF8 /* TimecardWidget.swift */,
 				30B84A122B83C06200CC7DF8 /* Assets.xcassets */,
 				30B84A142B83C06200CC7DF8 /* Info.plist */,
@@ -412,7 +412,7 @@
 				304852372D6F9C4100EE5682 /* Calculator.swift in Sources */,
 				304852442D709D1600EE5682 /* Week.swift in Sources */,
 				304852352D6F9AE100EE5682 /* Timecard.swift in Sources */,
-				300424372B7F975200177F0F /* TimecardApp.swift in Sources */,
+				300424372B7F975200177F0F /* App.swift in Sources */,
 				3048523E2D6FAC2D00EE5682 /* Extensions.swift in Sources */,
 				3048524A2D70C8EF00EE5682 /* EstimationView.swift in Sources */,
 				304852482D70A3FC00EE5682 /* Settings.swift in Sources */,
@@ -426,7 +426,7 @@
 			files = (
 				304852552D70F11300EE5682 /* Dashboard.swift in Sources */,
 				304852692D70F19E00EE5682 /* Extensions.swift in Sources */,
-				304852532D70F11300EE5682 /* TimecardWatchApp.swift in Sources */,
+				304852532D70F11300EE5682 /* WatchApp.swift in Sources */,
 				304852672D70F18F00EE5682 /* Day.swift in Sources */,
 				304852662D70F18A00EE5682 /* Week.swift in Sources */,
 				3048526C2D70F75800EE5682 /* EstimationView.swift in Sources */,
@@ -440,7 +440,7 @@
 			files = (
 				304852472D70A3FC00EE5682 /* Settings.swift in Sources */,
 				3048523F2D6FACAE00EE5682 /* Extensions.swift in Sources */,
-				30B84A0D2B83C06100CC7DF8 /* WidgetBundle.swift in Sources */,
+				30B84A0D2B83C06100CC7DF8 /* Bundle.swift in Sources */,
 				30B84A1D2B83C0EF00CC7DF8 /* Day.swift in Sources */,
 				304852452D709D1600EE5682 /* Week.swift in Sources */,
 				3048524B2D70CAC000EE5682 /* EstimationView.swift in Sources */,
@@ -665,7 +665,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard.watchapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -697,7 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jacobmccloud.Timecard.watchapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

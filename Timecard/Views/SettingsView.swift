@@ -1,5 +1,10 @@
 import SwiftUI
 
+/// A view that allows users to configure application settings.
+///
+/// The `SettingsView` provides a user interface for adjusting default values related to
+/// work hours, breaks, and workdays. Users can modify the default total hours, daily hours,
+/// break duration, as well as add or remove workdays from their schedule.
 struct SettingsView: View {
     @EnvironmentObject private var settings: Settings
     

@@ -1,23 +1,24 @@
 import Foundation
 
 extension Date {
-    func getDay() -> Days {
-        let weekday = Calendar.current.component(.weekday, from: self)
-        for day in Days.allCases {
-            if weekday == day.rawValue {
-                return day
-            }
-        }
-        return .monday
-    }
-    
-    func setWeekday(weekday: Days) -> Date {
+    /// Sets the weekday for the date based on the provided `WeekDay`.
+    ///
+    /// This method modifies the weekday component of the date while preserving
+    /// the hour and minute components.
+    ///
+    /// - Parameter weekday: The `WeekDay` to set for the date.
+    /// - Returns: A new `Date` instance with the specified weekday.
+    func setWeekday(weekday: WeekDay) -> Date {
         let calendar = Calendar.current
         var components = Calendar.current.dateComponents([.hour, .minute, .weekday, .year, .month, .day], from: self)
         components.weekday = weekday.rawValue
         return calendar.date(from: components) ?? Date.now
     }
     
+    /// Calculates the time difference in hours between the current date and another date.
+    ///
+    /// - Parameter date: The date to compare against.
+    /// - Returns: A `Double` representing the time difference in hours.
     func timeBetween(_ date: Date) -> Double {
         let inCalendar = Calendar.current.dateComponents([.hour, .minute], from: self)
         let outCalendar = Calendar.current.dateComponents([.hour, .minute], from: date)
@@ -28,6 +29,12 @@ extension Date {
 }
 
 extension Double {
+    /// Converts the double value to a formatted string.
+    ///
+    /// The string will have a minimum of one integer digit and a maximum of two,
+    /// with a minimum of two decimal places and a maximum of one decimal place.
+    ///
+    /// - Returns: A `String` representation of the double value.
     func toString() -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal

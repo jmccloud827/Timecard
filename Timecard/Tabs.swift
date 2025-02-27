@@ -2,6 +2,13 @@ import SwiftData
 import SwiftUI
 import WidgetKit
 
+/// A view that represents a tabbed interface for managing time-related data.
+///
+/// The `Tabs` view displays different child views in a `TabView`, allowing users to navigate between
+/// a Dashboard, a Timecard, and a Calculator. It also handles the scene phase changes to reload
+/// widget timelines when the app goes to the background.
+///
+/// - Note: This view requires a `ModelContext` and a query for `Week` data.
 struct Tabs: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.modelContext) private var modelContext

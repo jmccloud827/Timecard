@@ -1,6 +1,11 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
 
+/// A view that displays the user's dashboard for tracking punches and estimates.
+///
+/// The `Dashboard` provides an overview of the last punch time, estimation of hours worked,
+/// and functionality to add a new punch. It retrieves data from the `Week` model and displays
+/// relevant information based on user settings.
 struct Dashboard: View {
     @Environment(\.modelContext) private var modelContext
     
@@ -15,7 +20,7 @@ struct Dashboard: View {
                     ScrollView {
                         Text("Last Punch:")
                         
-                        Text("\(week.lastPunch?.formatted(date: .abbreviated, time: .shortened) ?? "N/A")")
+                        Text(week.lastPunch?.formatted(date: .abbreviated, time: .shortened) ?? "N/A")
                         
                         VStack {
                             EstimationView(lastPunch: week.currentDay.lastPunch, currentTotalHours: week.currentDay.totalHours, expectedTotalHours: settings.defaultHours)
@@ -25,12 +30,14 @@ struct Dashboard: View {
                                         .foregroundStyle(.accent.opacity(0.2))
                                 }
                             
-                            EstimationView(lastPunch: week.currentDay.lastPunch, currentTotalHours: week.currentDay.totalHours, expectedTotalHours: settings.defaultHours)
-                                .padding()
-                                .background {
-                                    RoundedRectangle(cornerSize: .init(width: 15, height: 10), style: .continuous)
-                                        .foregroundStyle(.accent.opacity(0.2))
-                                }
+                            if week.currentDay.weekDay == settings.workDays.last {
+                                EstimationView(lastPunch: week.currentDay.lastPunch, currentTotalHours: week.currentDay.totalHours, expectedTotalHours: settings.defaultHours)
+                                    .padding()
+                                    .background {
+                                        RoundedRectangle(cornerSize: .init(width: 15, height: 10), style: .continuous)
+                                            .foregroundStyle(.accent.opacity(0.2))
+                                    }
+                            }
                         }
                     }
                     .padding(.top, 20)

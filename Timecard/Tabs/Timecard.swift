@@ -1,9 +1,14 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
 
+/// A view that displays the timecard for a given week.
+///
+/// The `Timecard` view presents a list of daily entries for the week, allowing users to
+/// see their total hours worked for each day and the week to date. It includes a button to
+/// clear all time entries for the week.
+///
+/// - Note: This view requires a `Bindable` week object that holds the time entries.
 struct Timecard: View {
-    @EnvironmentObject private var settings: Settings
-    
     @Bindable var week: Week
     
     var body: some View {

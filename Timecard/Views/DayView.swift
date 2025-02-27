@@ -1,6 +1,11 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
 
+/// A view that displays the punch times for a specific day.
+///
+/// The `DayView` shows a list of punch entries for a given day, allowing users to view,
+/// edit, and delete punch times. It also displays the total hours worked for the day
+/// and provides an interface to add new punch times.
 struct DayView: View {
     @Bindable var day: Day
     
@@ -54,7 +59,7 @@ struct DayView: View {
             }
         } header: {
             HStack {
-                Text(day.day.displayValue)
+                Text(day.weekDay.displayValue)
                 
                 Spacer()
                 
@@ -66,6 +71,10 @@ struct DayView: View {
     }
 }
 
+/// A view for adding a new punch time.
+///
+/// The `AddPunchButton` presents a sheet for users to select a new punch time
+/// using a date picker, and it passes the selected time back to the parent view.
 struct AddPunchButton: View {
     let addPunch: (Date) -> Void
     

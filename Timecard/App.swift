@@ -1,11 +1,12 @@
-import SwiftUI
 import SwiftData
+import SwiftUI
 
 @main
-struct TimecardWatch_Watch_AppApp: App {
+struct TimecardApp: App {
     var body: some Scene {
         WindowGroup {
-            Dashboard()
+            Tabs()
+                .environmentObject(Settings())
         }
         .modelContainer(for: Week.self)
     }

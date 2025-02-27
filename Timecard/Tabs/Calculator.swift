@@ -1,5 +1,12 @@
 import SwiftUI
 
+/// A view that provides a calculator for estimating work hours and calculating punch-out times.
+///
+/// The `Calculator` view allows users to input their total hours worked for the week, the last punch time,
+/// and any break time. It calculates the estimated punch-out time based on these inputs and displays the result.
+/// The view is integrated with user settings to provide default values for hours and breaks.
+///
+/// - Note: This view requires a `Settings` environment object to retrieve user preferences.
 struct Calculator: View {
     @EnvironmentObject private var settings: Settings
     
@@ -57,6 +64,7 @@ struct Calculator: View {
         }
     }
     
+    /// A method to handle initial setup when the view appears.
     private func onAppear() {
         if isFirstLoad {
             isFirstLoad = false
@@ -70,8 +78,11 @@ struct Calculator: View {
         }
     }
     
+    /// Calculates the estimated punch-out time based on the last punch, total hours worked, and break time.
+    ///
+    /// - Returns: A `Date` representing the estimated punch-out time.
     private func getTimeOut() -> Date {
-        lastPunch.addingTimeInterval(((settings.defaultTotalHours - weekToDate) * 60 * 60) + Double((breakMinutes * 60)))
+        lastPunch.addingTimeInterval(((settings.defaultTotalHours - weekToDate) * 60 * 60) + Double(breakMinutes * 60))
     }
 }
 
