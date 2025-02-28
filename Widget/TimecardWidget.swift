@@ -12,7 +12,7 @@ struct TimecardWidget: SwiftUI.Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "Widget", provider: Provider()) { entry in
             if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
-                let config = ModelConfiguration(isStoredInMemoryOnly: true)
+                let config = ModelConfiguration(isStoredInMemoryOnly: false)
                 let container = try! ModelContainer(for: Week.self, configurations: config)
                 
                 let _ = container.mainContext.insert(Week.mockWeek)
@@ -38,7 +38,6 @@ struct TimecardWidget: SwiftUI.Widget {
 /// estimated time to reach expected hours based on the user's settings. It includes a button
 /// to punch in and supports different layouts based on the widget family.
 struct TimecardWidgetEntryView: View {
-    @Environment(\.modelContext) private var modelContext
     @Environment(\.widgetFamily) private var family
     
     var entry: Provider.Entry
@@ -106,10 +105,7 @@ struct TimecardWidgetEntryView: View {
                 }
                 .environmentObject(settings)
             } else {
-                Button {
-                    let week = Week()
-                    modelContext.insert(week)
-                } label: {
+                Button(intent: CreateWeekIntent()) {
                     Text("Get started")
                         .frame(maxWidth: .infinity)
                 }
@@ -201,6 +197,33 @@ struct PunchAppIntent: AppIntent {
         let container = try! ModelContainer(for: Week.self, configurations: config)
         let week = try container.mainContext.fetch(FetchDescriptor<Week>()).first
         week?.currentDay.addPunch(Date.now)
+        try container.mainContext.save()
+        WidgetCenter.shared.reloadAllTimelines()
+        
+        return .result()
+    }
+}
+
+/// An intent that handles creating a week for the user's timecard.
+///
+/// The `CreateWeekIntent` conforms to the `AppIntent` protocol and provides functionality
+/// to create a week when triggered from the widget.
+struct CreateWeekIntent: AppIntent {
+    nonisolated static let title: LocalizedStringResource = "Create Week"
+    
+    /// Initializes a new instance of the intent.
+    init() {}
+    
+    /// Performs the action of creating a week for the timecard.
+    ///
+    /// This method creates a week for the user's timecard,
+    /// saves the changes to the model, and reloads the widget timelines.
+    ///
+    /// - Returns: An `IntentResult` indicating the result of the operation.
+    @MainActor func perform() async throws -> some IntentResult {
+        let config = ModelConfiguration(isStoredInMemoryOnly: false)
+        let container = try! ModelContainer(for: Week.self, configurations: config)
+        container.mainContext.insert(Week())
         try container.mainContext.save()
         WidgetCenter.shared.reloadAllTimelines()
         
