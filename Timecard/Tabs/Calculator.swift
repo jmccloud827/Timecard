@@ -82,7 +82,7 @@ struct Calculator: View {
     ///
     /// - Returns: A `Date` representing the estimated punch-out time.
     private func getTimeOut() -> Date {
-        lastPunch.addingTimeInterval(((settings.defaultTotalHours - weekToDate) * 60 * 60) + Double(breakMinutes * 60))
+        lastPunch.addingTimeInterval(((settings.defaultTotalHours - weekToDate) * 60 * 60) + (addBreak ? Double(breakMinutes * 60) : 0))
     }
 }
 
