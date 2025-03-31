@@ -34,27 +34,29 @@ struct Tabs: View {
                             Label("Calculator", systemImage: "minus.slash.plus")
                         }
                 }
-                .scrollDismissesKeyboard(.interactively)
-                .onChange(of: scenePhase) {
-                    if scenePhase == .background {
-                        WidgetCenter.shared.reloadAllTimelines()
-                    }
-                }
             } else {
-                Button("Get started") {
-                    let week = Week()
-                    modelContext.insert(week)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .padding()
+                getStartedButton
+                    .padding()
             }
         }
         .scrollDismissesKeyboard(.interactively)
         .onChange(of: scenePhase) {
-            if scenePhase == .background {
-                WidgetCenter.shared.reloadAllTimelines()
-            }
+            onChangeOfScenePhase()
+        }
+    }
+    
+    private var getStartedButton: some View {
+        Button("Get started") {
+            let week = Week()
+            modelContext.insert(week)
+        }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+    }
+    
+    private func onChangeOfScenePhase() {
+        if scenePhase == .background {
+            WidgetCenter.shared.reloadAllTimelines()
         }
     }
 }

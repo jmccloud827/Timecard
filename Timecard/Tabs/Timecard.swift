@@ -14,13 +14,7 @@ struct Timecard: View {
     var body: some View {
         NavigationStack {
             List {
-                HStack {
-                    Text("Week to Date:")
-                    
-                    Spacer()
-                    
-                    Text(week.weekToDate.toString())
-                }
+                weekToDate
                 
                 DayView(day: week.sunday)
                 
@@ -38,12 +32,26 @@ struct Timecard: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Clear") {
-                        week.clear()
-                    }
+                    clearButton
                 }
             }
             .navigationTitle("Timecard")
+        }
+    }
+    
+    private var weekToDate: some View {
+        HStack {
+            Text("Week to Date:")
+            
+            Spacer()
+            
+            Text(week.weekToDate.toString())
+        }
+    }
+    
+    private var clearButton: some View {
+        Button("Clear") {
+            week.clear()
         }
     }
 }

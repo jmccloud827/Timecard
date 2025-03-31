@@ -23,54 +23,80 @@ struct Dashboard: View {
         NavigationStack {
             VStack {
                 Form {
-                    HStack {
-                        Text("Last Punch:")
-                            
-                        Spacer()
-                            
-                        Text("\(lastPunch?.formatted(date: .abbreviated, time: .shortened) ?? "N/A")")
-                    }
+                    lastPunchLabel
                         
-                    HStack {
-                        Text("Week to Date:")
-                            
-                        Spacer()
-                            
-                        Text("\(weekToDate.toString())")
-                    }
+                    weekToDateLabel
                         
+                    // Estimates for current day to default hours
                     EstimationView(lastPunch: currentDay.lastPunch, currentTotalHours: currentDay.totalHours, expectedTotalHours: settings.defaultHours)
                         
+                    // Estimates for last day to default total hours
                     if currentDay.weekDay == settings.workDays.last {
                         EstimationView(lastPunch: currentDay.lastPunch, currentTotalHours: weekToDate, expectedTotalHours: settings.defaultTotalHours)
                     }
                 }
                     
-                Button {
-                    currentDay.addPunch(Date.now)
-                } label: {
-                    Text("Punch")
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.large)
-                .disabled(currentDay.isPunchButtonDisabled)
+                punchButton
                 .padding()
             }
-            .background(colorScheme == .light ? Color.white : Color(.secondarySystemGroupedBackground))
+            .background(backgroundColor)
             .navigationTitle("Dashboard")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                        showSheet = true
-                    } label: {
-                        Label("Settings", systemImage: "gearshape.fill")
-                    }
+                    showSettingsButton
                 }
             }
             .sheet(isPresented: $showSheet) {
                 SettingsView()
             }
+        }
+    }
+    
+    private var lastPunchLabel: some View {
+        HStack {
+            Text("Last Punch:")
+                
+            Spacer()
+                
+            Text("\(lastPunch?.formatted(date: .abbreviated, time: .shortened) ?? "N/A")")
+        }
+    }
+    
+    private var weekToDateLabel: some View {
+        HStack {
+            Text("Week to Date:")
+                
+            Spacer()
+                
+            Text("\(weekToDate.toString())")
+        }
+    }
+    
+    private var punchButton: some View {
+        Button {
+            currentDay.addPunch(Date.now)
+        } label: {
+            Text("Punch")
+                .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(.borderedProminent)
+        .controlSize(.large)
+        .disabled(currentDay.isPunchButtonDisabled)
+    }
+    
+    private var backgroundColor: Color {
+        if colorScheme == .light {
+            Color.white
+        } else {
+            Color(.secondarySystemGroupedBackground)
+        }
+    }
+    
+    private var showSettingsButton: some View {
+        Button {
+            showSheet = true
+        } label: {
+            Label("Settings", systemImage: "gearshape.fill")
         }
     }
 }

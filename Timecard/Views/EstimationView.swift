@@ -13,54 +13,73 @@ struct EstimationView: View {
     var expectedTotalHours: Double
     
     private var hoursLeft: Double { expectedTotalHours - currentTotalHours }
+    private var hoursLeftPlusBreak: Double { hoursLeft + Double(settings.defaultBreak) / 60.0 }
+    
+    @State private var now = Date.now
+    
+    private let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("You will hit:")
+            Text(label)
             
-            HStack {
-                Text("\(expectedTotalHours.toString()) hours for today at:")
-                    .padding(.leading, 10)
-                
-                Spacer()
-                
-                if let lastPunch {
-                    if hoursLeft > 0 {
-                        Text(calcLastPunch(lastPunch: lastPunch).addingTimeInterval(hoursLeft * 60 * 60).formatted(date: .omitted, time: .shortened))
-                    } else {
-                        Image(systemName: "checkmark")
-                    }
-                } else {
-                    Text("N/A")
-                }
-            }
+            hoursLeftLabel
             
-            HStack {
-                Text("with a \(settings.defaultBreak) minute break:")
-                    .padding(.leading, 20)
-                
-                Spacer()
-                
-                if let lastPunch {
-                    let hoursLeftPlusBreak = hoursLeft + Double(settings.defaultBreak) / 60.0
-                    if hoursLeftPlusBreak > 0 {
-                        Text(calcLastPunch(lastPunch: lastPunch).addingTimeInterval(hoursLeftPlusBreak * 60 * 60).formatted(date: .omitted, time: .shortened))
-                    } else {
-                        Image(systemName: "checkmark")
-                    }
-                } else {
-                    Text("N/A")
-                }
+            hoursLeftPlusBreakLabel
+        }
+        .onReceive(timer) { _ in
+            onReceiveOfTimer()
+        }
+    }
+    
+    private var label: String {
+        if lastPunch?.isIn ?? false {
+            "You will hit:"
+        } else {
+            "If you clock in at \(now.formatted(date: .omitted, time: .shortened)) you will hit:"
+        }
+    }
+    
+    private var hoursLeftLabel: some View {
+        HStack {
+            Text("\(expectedTotalHours.toString()) hours for today at:")
+                .padding(.leading, 10)
+            
+            Spacer()
+            
+            if hoursLeft > 0 {
+                Text(lastPunchOrNow.addingTimeInterval(hoursLeft * 60 * 60).formatted(date: .omitted, time: .shortened))
+            } else {
+                Image(systemName: "checkmark")
             }
         }
     }
     
-    /// Calculates the effective last punch time based on whether the last punch is an "in" punch.
-    ///
-    /// - Parameter lastPunch: A tuple containing the last punch time and a boolean indicating if it is an "in" punch.
-    /// - Returns: A `Date` representing the effective last punch time.
-    private func calcLastPunch(lastPunch: (punch: Date, isIn: Bool)) -> Date {
-        lastPunch.isIn ? lastPunch.punch : Date.now
+    private var hoursLeftPlusBreakLabel: some View {
+        HStack {
+            Text("with a \(settings.defaultBreak) minute break:")
+                .padding(.leading, 20)
+            
+            Spacer()
+            
+            if hoursLeftPlusBreak > 0 {
+                Text(lastPunchOrNow.addingTimeInterval(hoursLeftPlusBreak * 60 * 60).formatted(date: .omitted, time: .shortened))
+            } else {
+                Image(systemName: "checkmark")
+            }
+        }
+    }
+    
+    private var lastPunchOrNow: Date {
+        if let lastPunch, lastPunch.isIn {
+            lastPunch.punch
+        } else {
+            now
+        }
+    }
+    
+    private func onReceiveOfTimer() {
+        now = Date.now
     }
 }
 

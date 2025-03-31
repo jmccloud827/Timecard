@@ -22,39 +22,13 @@ struct Calculator: View {
         VStack(spacing: 0) {
             NavigationStack {
                 Form {
-                    HStack {
-                        Text("Week to Date:")
-                        
-                        Spacer()
-                        
-                        TextField("", value: $weekToDate, format: .number)
-                            .multilineTextAlignment(.trailing)
-                            .keyboardType(.decimalPad)
-                            .frame(width: 50)
-                    }
-                    DatePicker("Last Punch Time", selection: $lastPunch, displayedComponents: .hourAndMinute)
+                    weekToDateInput
                     
-                    Toggle("Add Break?", isOn: $addBreak)
-                    if addBreak {
-                        HStack {
-                            Text("Break Time (Minutes):")
-                            
-                            Spacer()
-                            
-                            TextField("", value: $breakMinutes, format: .number)
-                                .multilineTextAlignment(.trailing)
-                                .keyboardType(.decimalPad)
-                                .frame(width: 50)
-                        }
-                    }
+                    lasPunchTimeInput
                     
-                    HStack {
-                        Text("You will hit \(settings.defaultTotalHours.toString()) hours at:")
-                        
-                        Spacer()
-                        
-                        Text(getTimeOut().formatted(date: .omitted, time: .shortened))
-                    }
+                    breakInput
+                    
+                    timeOutLabel
                 }
                 .navigationTitle("Calculator")
             }
@@ -64,7 +38,56 @@ struct Calculator: View {
         }
     }
     
-    /// A method to handle initial setup when the view appears.
+    private var weekToDateInput: some View {
+        HStack {
+            Text("Week to Date:")
+            
+            Spacer()
+            
+            TextField("", value: $weekToDate, format: .number)
+                .multilineTextAlignment(.trailing)
+                .keyboardType(.decimalPad)
+                .frame(width: 50)
+        }
+    }
+    
+    private var lasPunchTimeInput: some View {
+        DatePicker("Last Punch Time", selection: $lastPunch, displayedComponents: .hourAndMinute)
+    }
+    
+    @ViewBuilder private var breakInput: some View {
+        Toggle("Add Break?", isOn: $addBreak)
+        
+        if addBreak {
+            HStack {
+                Text("Break Time (Minutes):")
+                
+                Spacer()
+                
+                TextField("", value: $breakMinutes, format: .number)
+                    .multilineTextAlignment(.trailing)
+                    .keyboardType(.decimalPad)
+                    .frame(width: 50)
+            }
+        }
+    }
+    
+    private var timeOutLabel: some View {
+        HStack {
+            Text("You will hit \(settings.defaultTotalHours.toString()) hours at:")
+            
+            Spacer()
+            
+            Text(getTimeOut().formatted(date: .omitted, time: .shortened))
+        }
+    }
+    
+    private func getTimeOut() -> Date {
+        let hoursLeftInSeconds = (settings.defaultTotalHours - weekToDate) * 60 * 60
+        let breakInSeconds = addBreak ? Double(breakMinutes * 60) : 0
+        return lastPunch.addingTimeInterval(hoursLeftInSeconds + breakInSeconds)
+    }
+    
     private func onAppear() {
         if isFirstLoad {
             isFirstLoad = false
@@ -73,16 +96,7 @@ struct Calculator: View {
             addBreak = settings.defaultBreak != 0
         }
         
-        if !(currentDayLastPunch?.isIn ?? true) {
-            lastPunch = currentDayLastPunch?.punch ?? Date.now
-        }
-    }
-    
-    /// Calculates the estimated punch-out time based on the last punch, total hours worked, and break time.
-    ///
-    /// - Returns: A `Date` representing the estimated punch-out time.
-    private func getTimeOut() -> Date {
-        lastPunch.addingTimeInterval(((settings.defaultTotalHours - weekToDate) * 60 * 60) + (addBreak ? Double(breakMinutes * 60) : 0))
+        lastPunch = currentDayLastPunch?.punch ?? Date.now
     }
 }
 
