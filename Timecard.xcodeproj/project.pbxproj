@@ -87,7 +87,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		300424332B7F975200177F0F /* Timecard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timecard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		300424332B7F975200177F0F /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		300424362B7F975200177F0F /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		300424382B7F975200177F0F /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
 		3004243A2B7F975200177F0F /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		3004242A2B7F975200177F0F = {
 			isa = PBXGroup;
 			children = (
-				300424352B7F975200177F0F /* Timecard */,
+				300424352B7F975200177F0F /* App */,
 				30B84A0B2B83C06100CC7DF8 /* Widget */,
 				304852622D70F16900EE5682 /* WatchApp */,
 				30B84A062B83C06100CC7DF8 /* Frameworks */,
@@ -162,14 +162,14 @@
 		300424342B7F975200177F0F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				300424332B7F975200177F0F /* Timecard.app */,
+				300424332B7F975200177F0F /* App.app */,
 				30B84A052B83C06100CC7DF8 /* Widget.appex */,
 				304852502D70F11300EE5682 /* WatchApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		300424352B7F975200177F0F /* Timecard */ = {
+		300424352B7F975200177F0F /* App */ = {
 			isa = PBXGroup;
 			children = (
 				300424362B7F975200177F0F /* App.swift */,
@@ -183,7 +183,7 @@
 				30B84A2E2B83F77E00CC7DF8 /* Timecard.entitlements */,
 				3004243E2B7F975300177F0F /* Preview Content */,
 			);
-			path = Timecard;
+			path = App;
 			sourceTree = "<group>";
 		};
 		3004243E2B7F975300177F0F /* Preview Content */ = {
@@ -269,9 +269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		300424322B7F975200177F0F /* Timecard */ = {
+		300424322B7F975200177F0F /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 300424452B7F975300177F0F /* Build configuration list for PBXNativeTarget "Timecard" */;
+			buildConfigurationList = 300424452B7F975300177F0F /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				3004242F2B7F975200177F0F /* Sources */,
 				300424302B7F975200177F0F /* Frameworks */,
@@ -285,11 +285,11 @@
 				30B84A162B83C06200CC7DF8 /* PBXTargetDependency */,
 				3048525C2D70F11500EE5682 /* PBXTargetDependency */,
 			);
-			name = Timecard;
+			name = App;
 			packageProductDependencies = (
 			);
 			productName = Timecard;
-			productReference = 300424332B7F975200177F0F /* Timecard.app */;
+			productReference = 300424332B7F975200177F0F /* App.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3048524F2D70F11300EE5682 /* WatchApp */ = {
@@ -364,7 +364,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				300424322B7F975200177F0F /* Timecard */,
+				300424322B7F975200177F0F /* App */,
 				30B84A042B83C06100CC7DF8 /* Widget */,
 				3048524F2D70F11300EE5682 /* WatchApp */,
 			);
@@ -588,14 +588,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Timecard/Timecard.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/Timecard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Timecard/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = JY83NY58JG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Timecard/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -619,14 +619,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Timecard/Timecard.entitlements;
+				CODE_SIGN_ENTITLEMENTS = App/Timecard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Timecard/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"App/Preview Content\"";
 				DEVELOPMENT_TEAM = JY83NY58JG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Timecard/Info.plist;
+				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -777,7 +777,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		300424452B7F975300177F0F /* Build configuration list for PBXNativeTarget "Timecard" */ = {
+		300424452B7F975300177F0F /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				300424462B7F975300177F0F /* Debug */,
