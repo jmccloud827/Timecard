@@ -68,9 +68,9 @@ struct Dashboard: View {
 
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Week.self, configurations: config)
+    let container = try! ModelContainer(for: Week.self, Day.self, configurations: config)
     
-    container.mainContext.insert(Week.mockWeek)
+    container.mainContext.insert(Week.sample)
     
     return Dashboard()
         .modelContainer(container)

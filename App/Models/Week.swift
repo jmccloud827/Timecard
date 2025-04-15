@@ -96,7 +96,7 @@ import SwiftData
     }
     
     /// A mock `Week` instance with sample data for testing and previewing.
-    static var mockWeek: Week {
+    static var sample: Week {
         let week = Week()
         
         week.sunday.addPunch(Date.now.addingTimeInterval(-10_000))

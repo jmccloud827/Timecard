@@ -13,9 +13,9 @@ struct TimecardWidget: SwiftUI.Widget {
         StaticConfiguration(kind: "Widget", provider: Provider()) { entry in
             if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
                 let config = ModelConfiguration(isStoredInMemoryOnly: false)
-                let container = try! ModelContainer(for: Week.self, configurations: config)
+                let container = try! ModelContainer(for: Week.self, Day.self, configurations: config)
                 
-                let _ = container.mainContext.insert(Week.mockWeek)
+                let _ = container.mainContext.insert(Week.sample)
                 
                 TimecardWidgetEntryView(entry: entry)
                     .containerBackground(.fill.tertiary, for: .widget)
@@ -222,7 +222,7 @@ struct CreateWeekIntent: AppIntent {
     /// - Returns: An `IntentResult` indicating the result of the operation.
     @MainActor func perform() async throws -> some IntentResult {
         let config = ModelConfiguration(isStoredInMemoryOnly: false)
-        let container = try! ModelContainer(for: Week.self, configurations: config)
+        let container = try! ModelContainer(for: Week.self, Day.self, configurations: config)
         container.mainContext.insert(Week())
         try container.mainContext.save()
         WidgetCenter.shared.reloadAllTimelines()

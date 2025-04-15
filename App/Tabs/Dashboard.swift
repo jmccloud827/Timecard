@@ -1,4 +1,3 @@
-import SwiftData
 import SwiftUI
 
 /// A view that displays the dashboard for tracking time-related data.
@@ -102,10 +101,9 @@ struct Dashboard: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Week.self, configurations: config)
+    let container = App.previewContainer
     
-    Dashboard(currentDay: Week.mockWeek.monday, lastPunch: Week.mockWeek.monday.lastPunch?.punch, weekToDate: 10)
+    Dashboard(currentDay: Week.sample.monday, lastPunch: Week.sample.monday.lastPunch?.punch, weekToDate: 10)
         .environmentObject(Settings())
         .modelContainer(container)
 }

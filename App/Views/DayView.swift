@@ -1,4 +1,3 @@
-import SwiftData
 import SwiftUI
 
 /// A view that displays the punch times for a specific day.
@@ -129,11 +128,9 @@ private struct AddPunchButton: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Week.self, configurations: config)
-    
+    let container = App.previewContainer
     List {
-        DayView(day: Week.mockWeek.monday)
+        DayView(day: Week.sample.monday)
     }
     .modelContainer(container)
 }

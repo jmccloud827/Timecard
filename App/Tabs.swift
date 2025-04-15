@@ -62,10 +62,9 @@ struct Tabs: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Week.self, configurations: config)
+    let container = App.previewContainer
     
-    container.mainContext.insert(Week.mockWeek)
+    container.mainContext.insert(Week.sample)
     
     return Tabs()
         .modelContainer(container)

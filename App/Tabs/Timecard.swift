@@ -1,4 +1,3 @@
-import SwiftData
 import SwiftUI
 
 /// A view that displays the timecard for a given week.
@@ -57,9 +56,8 @@ struct Timecard: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: Week.self, configurations: config)
+    let container = App.previewContainer
     
-    Timecard(week: Week.mockWeek)
+    Timecard(week: Week.sample)
         .modelContainer(container)
 }
