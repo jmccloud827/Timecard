@@ -15,8 +15,6 @@ struct Timecard: View {
             List {
                 weekToDate
                 
-                DayView(day: week.sunday)
-                
                 DayView(day: week.monday)
                 
                 DayView(day: week.tuesday)
@@ -28,6 +26,8 @@ struct Timecard: View {
                 DayView(day: week.friday)
                 
                 DayView(day: week.saturday)
+                
+                DayView(day: week.sunday)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
