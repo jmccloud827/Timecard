@@ -184,7 +184,7 @@ struct PunchAppIntent: AppIntent {
     nonisolated static let title: LocalizedStringResource = "Add punch"
     
     /// Initializes a new instance of the intent.
-    init() {}
+    nonisolated init() {}
     
     /// Performs the action of adding a punch to the timecard.
     ///
@@ -212,7 +212,7 @@ struct CreateWeekIntent: AppIntent {
     nonisolated static let title: LocalizedStringResource = "Create Week"
     
     /// Initializes a new instance of the intent.
-    init() {}
+    nonisolated init() {}
     
     /// Performs the action of creating a week for the timecard.
     ///
