@@ -8,7 +8,7 @@ import SwiftData
 /// SwiftData entity for use with data persistence.
 ///
 /// - Note: This class conforms to the `Identifiable` protocol, allowing it to be uniquely identified.
-@Model class Week: Identifiable {
+@Model class Week: Identifiable, Hashable {
     @Attribute(.unique) var id = UUID()
     
     var sunday = Day(weekDay: .sunday)
@@ -121,5 +121,9 @@ import SwiftData
         week.saturday.addPunch(Date.now.addingTimeInterval(-100))
         
         return week
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }
