@@ -35,6 +35,7 @@
 		304852682D70F19600EE5682 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852462D70A3FC00EE5682 /* Settings.swift */; };
 		304852692D70F19E00EE5682 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048523D2D6FAC2D00EE5682 /* Extensions.swift */; };
 		3048526C2D70F75800EE5682 /* EstimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304852492D70C8EF00EE5682 /* EstimationView.swift */; };
+		30A4FC202EEAFDC6005AE5D3 /* ImportPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A4FC1F2EEAFDC6005AE5D3 /* ImportPhotoView.swift */; };
 		30B84A082B83C06100CC7DF8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A072B83C06100CC7DF8 /* WidgetKit.framework */; };
 		30B84A0A2B83C06100CC7DF8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30B84A092B83C06100CC7DF8 /* SwiftUI.framework */; };
 		30B84A0D2B83C06100CC7DF8 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B84A0C2B83C06100CC7DF8 /* Bundle.swift */; };
@@ -110,6 +111,7 @@
 		3048526B2D70F71500EE5682 /* WatchApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WatchApp.entitlements; sourceTree = "<group>"; };
 		3048526D2D70FB8F00EE5682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3048526E2D70FBE300EE5682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30A4FC1F2EEAFDC6005AE5D3 /* ImportPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPhotoView.swift; sourceTree = "<group>"; };
 		30B84A052B83C06100CC7DF8 /* Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Widget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B84A072B83C06100CC7DF8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		30B84A092B83C06100CC7DF8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -220,6 +222,7 @@
 				3048522C2D6F848200EE5682 /* DayView.swift */,
 				304852402D6FACDF00EE5682 /* SettingsView.swift */,
 				304852492D70C8EF00EE5682 /* EstimationView.swift */,
+				30A4FC1F2EEAFDC6005AE5D3 /* ImportPhotoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30A4FC202EEAFDC6005AE5D3 /* ImportPhotoView.swift in Sources */,
 				300424392B7F975200177F0F /* Tabs.swift in Sources */,
 				3004243B2B7F975200177F0F /* Day.swift in Sources */,
 				304852412D6FACE000EE5682 /* SettingsView.swift in Sources */,
@@ -608,6 +612,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Timecard;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to take a picture to pull timecard information from";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -642,6 +648,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Timecard;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app would like to take a picture to pull timecard information from";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

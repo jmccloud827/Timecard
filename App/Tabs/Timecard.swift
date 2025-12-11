@@ -30,7 +30,11 @@ struct Timecard: View {
                 DayView(day: week.sunday)
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
+                ToolbarItem(placement: .topBarLeading) {
+                    importFromImageView
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
                     clearButton
                 }
             }
@@ -45,6 +49,12 @@ struct Timecard: View {
             Spacer()
             
             Text(week.weekToDate.toString())
+        }
+    }
+    
+    private var importFromImageView: some View {
+        ImportPhotoView { image in
+            week.getPunchesFromImage(image: image)
         }
     }
     
